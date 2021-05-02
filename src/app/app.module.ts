@@ -3,15 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ChannelComponent } from './channel/channel.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    ProfilePageComponent
     ChannelComponent,
     ForgotPasswordComponent
+
   ],
   imports: [
     BrowserModule,
