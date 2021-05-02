@@ -7,15 +7,16 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ChannelComponent } from './channel/channel.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
     ChannelComponent,
-    ForgotPasswordComponent
-
+    ForgotPasswordComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
