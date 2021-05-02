@@ -1,0 +1,78 @@
+.four-channel {
+  width: 250px;
+  position: fixed;
+  height: 35%;
+  overflow: auto;
+}
+
+.current-channel {
+  width: 50%;
+  height: 750px;
+  margin: auto;
+  border: 3px solid dodgerblue;
+  padding: 10px;
+  background: darkgrey;
+  overflow: auto;
+}
+
+.channels {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+  height: 20%;
+}
+.channels li {
+  cursor: pointer;
+  position: center;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  text-align: center;
+}
+.channels li:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+  left: .1em;
+}
+.channels li.selected {
+  background-color: black;
+  color: white;
+}
+.channels li.selected:hover {
+  background-color: #505050;
+  color: white;
+}
+.channels li.selected:active {
+  background-color: black;
+  color: white;
+}
+
+.selected-messages {
+  font-size: 12pt;
+}
+
+.new-message {
+  position: sticky;
+}
+
+input {
+  padding: .5rem;
+}
+
+.profile {
+  position: absolute;
+  top: 35%;
+  right: 0;
+  border-radius: 50%;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+}
