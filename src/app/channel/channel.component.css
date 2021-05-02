@@ -1,0 +1,61 @@
+.four-channel {
+  width: min-content;
+  position: fixed;
+  height: min-content;
+}
+
+.current-channel {
+  position: absolute;
+  width: 800px;
+  height: 100%;
+  z-index: 15;
+  top: 12.25%;
+  left: 35%;
+  margin: -100px 0 0 -150px;
+  background: red;
+}
+
+.channels {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+  height: 20%;
+}
+.channels li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  text-align: center;
+}
+.channels li:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+  left: .1em;
+}
+.channels li.selected {
+  background-color: black;
+  color: white;
+}
+.channels li.selected:hover {
+  background-color: #505050;
+  color: white;
+}
+.channels li.selected:active {
+  background-color: black;
+  color: white;
+}
+
+.selected-messages {
+  font-size: 12pt;
+}
+
+input {
+  padding: .5rem;
+}
