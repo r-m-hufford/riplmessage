@@ -1,0 +1,21 @@
+<div class="four-channel">
+  <h1>MY CHANNELS</h1>
+  <ul class="channels">
+    <li *ngFor="let channel of channels"
+        [class.selected]="channel === selectedChannel"
+        (click)="onClick(channel)">
+      {{ channel.name }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="selectedChannel">
+
+  <h1>{{ selectedChannel.name | uppercase }}</h1>
+  <div><span>Owner: </span>{{ selectedChannel.owner }}</div>
+  <div>
+    <label for="channel-name">Channel name: </label>
+    <input id="channel-name" [(ngModel)]="selectedChannel.name" placeholder="name">
+  </div>
+
+</div>
