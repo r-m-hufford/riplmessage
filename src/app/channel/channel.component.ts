@@ -10,6 +10,7 @@ import { CHANNELS } from '../mock-channels';
 export class ChannelComponent implements OnInit {
   channels = CHANNELS;
   selectedChannel?: Channel;
+  message = '';
 
   constructor() { }
 
@@ -18,5 +19,9 @@ export class ChannelComponent implements OnInit {
 
   onClick(channel: Channel): void {
     this.selectedChannel = channel;
+  }
+
+  submitMessage(): void {
+    this.selectedChannel?.messages.push(this.message);
   }
 }

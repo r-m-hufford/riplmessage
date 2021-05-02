@@ -9,13 +9,21 @@
   </ul>
 </div>
 
-<div *ngIf="selectedChannel">
+<div class="current-channel" *ngIf="selectedChannel">
 
   <h1>{{ selectedChannel.name | uppercase }}</h1>
   <div><span>Owner: </span>{{ selectedChannel.owner }}</div>
   <div>
-    <label for="channel-name">Channel name: </label>
-    <input id="channel-name" [(ngModel)]="selectedChannel.name" placeholder="name">
+    <ol class="selected-messages">
+      <li *ngFor="let message of selectedChannel.messages">
+        {{message}}
+      </li>
+    </ol>
   </div>
+  <div>
+    <label for="new-message">Message </label>
+    <input id="new-message" [(ngModel)]="message" placeholder="Enter message here">
+  </div>
+  <button class="submit-button" (click)="submitMessage()">SEND</button>
 
 </div>
