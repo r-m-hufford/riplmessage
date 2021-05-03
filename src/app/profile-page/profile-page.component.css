@@ -1,8 +1,11 @@
 /*STANDARD CSS OBJECTS*/
-body{
-  height: 100vh;
-  width: 95vw;
-  border-radius: 15px;
+
+html,
+body,
+#background {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #4F5F76;
 }
 
 h1 {
@@ -106,21 +109,21 @@ label{
 
 
 /*SCROLL BAR SETTINGS*/
-/*div::-webkit-scrollbar {
-  width: 12px; !* width of the entire scrollbar *!
+div::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
 }
 
 div::-webkit-scrollbar-track {
-  background: #0F2862;        !* color of the tracking area *!
+  background: #0F2862;        /* color of the tracking area */
   border-radius: 6px;
 }
 
 div::-webkit-scrollbar-thumb {
   background-image: linear-gradient(to bottom right, #9E363A, #091F36);
-  !*background-color: #091F36;    *!!* color of the scroll thumb *!
-  border-radius: 20px;       !* roundness of the scroll thumb *!
-  !*border: 1px solid #9E363A;*!  !* creates padding around scroll thumb *!
-}*/
+  /*background-color: #091F36;    *//* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  /*border: 1px solid #9E363A;*/  /* creates padding around scroll thumb */
+}
 
 
 

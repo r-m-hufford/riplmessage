@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body,
+#background {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #4F5F76;
+}
+
 html::-webkit-scrollbar {
   width: 12px; /* width of the entire scrollbar */
 }
@@ -14,3 +22,5 @@ html::-webkit-scrollbar-thumb {
   border-radius: 20px;       /* roundness of the scroll thumb */
   /*border: 1px solid #9E363A;*/  /* creates padding around scroll thumb */
 }
+
+
