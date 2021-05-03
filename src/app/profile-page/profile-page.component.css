@@ -1,122 +1,71 @@
-.body {
-  background-color: #4F5F76;
-  height: 200vh;
+body{
+  height: 100vh;
+  width: 100vw;
 }
 
-.profilePicBorder{
-  position: absolute;
-  width: 418px;
-  height: 383px;
-  left: 67px;
-  top: 54px;
-
-  background: #0F2862;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-}
-
-#over img {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  display: block;
-}
-
-p {
-  padding: 10px 20px;
-  font-size: x-large;
-}
-
-.boxsquare {
-  width: 200px;
-  height: 200px;
-  background-color: #4F5F76;
-  padding: 20px;
-  border: 10px solid #0F2862;
-  margin: 5px;
-  border-radius: 25px;
-  display: inline-block;
-  overflow: auto;
-  font-size: 20pt;
-}
-
-.boxrect {
-  width: 400px;
-  height: 200px;
-  background-color: #4F5F76;
-  padding: 20px;
-  border: 10px solid #0F2862;
-  margin: 5px;
-  border-radius: 25px;
-  display: inline-block;
-}
-
-.internal {
-  width: 75%;
-  height: 75%;
-  background-color: antiquewhite;
-  border: solid #0F2862;
+.container {
+  height: 90vh;
+  display: grid;
+  grid-template: minmax(300px, 50fr) minmax(300px, 50fr) /300px 50fr 50fr;
+  grid-template-areas:
+  "profile channels channels"
+  "settings dm dm";
+  justify-items: stretch;
+  align-items: stretch;
+  row-gap: 10px;
+  column-gap: 10px;
 }
 
 img {
-  width: 95%;
-  height: 95%;
+  width: 80%;
+  height: 80%;
+}
+.picHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rowHolder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
-.divtest {
-  width: 40vw;
-  height: 100vh;
-  background-color: aquamarine;
-  border: 3px solid saddlebrown;
-  display: inline-block;
-  margin: 4px;
-  overflow: auto;
-  border-radius: 15px;
-}
-
-.boxes {
-  border: 3px solid  #0F2862;
-  position: relative;
+.columnHolder {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 .box {
-  width: 5rem;
-  hieght: 5rem;
-  font-size: x-large;
+  font-size: 24pt;
+  background-color: dodgerblue;
+  border: 3px solid darkgrey;
+  border-radius: 15px;
 }
 
-.boxone{
-  background: gold;
+.pic{
+
 }
 
-.boxtwo{
-  background: tomato;
-  position: fixed;
-  top: 0;
-  left: 2rem;
-  right: 2rem;
-  width: auto;
-  z-index: 99;
+.channels {
+  grid-area: channels;
+
 }
 
-.boxthree{
-  background: dodgerblue;
+.dm{
+  grid-area: dm;
 }
 
-.tweet {
-  border: 3px solid slategrey;
-}
-
-.avatar {
-  width: 6rem;
-  height: 6rem;
-  background-color: gold;
-  float: left;
-  margin: 0.5rem;
-}
-
-.clear{
-  clear: both;
+.channelDmButton {
+  height: 100px;
+  width: 100px;
+  background-color: #4F5F76;
+  border-radius: 50%;
+  margin: 10px;
+  z-index: 2;
 }
 
 
