@@ -1,11 +1,36 @@
+/*STANDARD CSS OBJECTS*/
 body{
   height: 100vh;
-  width: 100vw;
+  width: 95vw;
+  border-radius: 15px;
 }
 
+h1 {
+  margin-left: 45vw;
+  font-family: "Noto Sans Adlam";
+  color: #9E363A;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+  border: 3px solid #9E363A;
+  border-radius: 15px;
+}
+
+button{
+
+}
+
+label{
+  color: #9E363A;
+}
+
+/*CUSTOM CLASSES*/
 .container {
   height: 90vh;
   display: grid;
+  margin: 10px;
   grid-template: minmax(300px, 50fr) minmax(300px, 50fr) /300px 50fr 50fr;
   grid-template-areas:
   "profile channels channels"
@@ -16,15 +41,20 @@ body{
   column-gap: 10px;
 }
 
-img {
-  width: 80%;
-  height: 80%;
+.box {
+  font-size: 24pt;
+  background-color: #0F2862;
+  border-radius: 6px;
+  font-family: "Noto Sans Adlam";
 }
+
+
 .picHolder {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .rowHolder {
   display: flex;
   flex-direction: row;
@@ -39,17 +69,6 @@ img {
   overflow-y: scroll;
 }
 
-.box {
-  font-size: 24pt;
-  background-color: dodgerblue;
-  border: 3px solid darkgrey;
-  border-radius: 15px;
-}
-
-.pic{
-
-}
-
 .channels {
   grid-area: channels;
 
@@ -62,10 +81,50 @@ img {
 .channelDmButton {
   height: 100px;
   width: 100px;
-  background-color: #4F5F76;
+  background-image: linear-gradient(to bottom right, #9E363A, #091F36);
   border-radius: 50%;
   margin: 10px;
   z-index: 2;
 }
+
+.settingHolder{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.setting{
+  margin-left: 15px;
+}
+
+.longlabel {
+  font-size: 18pt;
+}
+
+
+/*SCROLL BAR SETTINGS*/
+/*div::-webkit-scrollbar {
+  width: 12px; !* width of the entire scrollbar *!
+}
+
+div::-webkit-scrollbar-track {
+  background: #0F2862;        !* color of the tracking area *!
+  border-radius: 6px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom right, #9E363A, #091F36);
+  !*background-color: #091F36;    *!!* color of the scroll thumb *!
+  border-radius: 20px;       !* roundness of the scroll thumb *!
+  !*border: 1px solid #9E363A;*!  !* creates padding around scroll thumb *!
+}*/
+
+
+
+
+
 
 
