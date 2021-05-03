@@ -12,11 +12,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
     ChannelComponent,
-    ForgotPasswordComponent
-
-  ],
+    ForgotPasswordComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
