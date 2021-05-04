@@ -1,13 +1,4 @@
 /*STANDARD CSS OBJECTS*/
-
-html,
-body,
-#background {
-  width: 100vw;
-  min-height: 100vh;
-  background-color: #4F5F76;
-}
-
 h1 {
   margin-left: 45vw;
   font-family: "Noto Sans Adlam";
@@ -34,7 +25,7 @@ label{
   height: 90vh;
   display: grid;
   margin: 10px;
-  grid-template: minmax(300px, 50fr) minmax(300px, 50fr) /300px 50fr 50fr;
+  grid-template: minmax(300px, 50fr) minmax(300px, 50fr) /300px 50fr 50fr 125px;
   grid-template-areas:
   "profile channels channels"
   "settings dm dm";
@@ -69,6 +60,7 @@ label{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: center;
   overflow-y: scroll;
 }
 
