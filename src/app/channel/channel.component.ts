@@ -23,5 +23,6 @@ export class ChannelComponent implements OnInit {
 
   submitMessage(): void {
     this.selectedChannel?.messages.push(this.message);
+    this.message = '';
   }
 }
