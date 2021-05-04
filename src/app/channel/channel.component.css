@@ -1,78 +1,56 @@
-.four-channel {
-  width: 250px;
-  position: fixed;
-  height: 35%;
+html,
+body,
+#background {
+  width: 98vw;
+  min-height: 97vh;
+  background-color: #4F5F76;
+}
+
+div::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+div::-webkit-scrollbar-track {
+  background: #0F2862;        /* color of the tracking area */
+  border-radius: 6px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom right, #9E363A, #091F36);
+  /*background-color: #091F36;    *//* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  /*border: 1px solid #9E363A;*/  /* creates padding around scroll thumb */
+}
+
+.container {
+  height: 90vh;
+  display: grid;
+  margin: 10px;
+  grid-template: 100fr / 20fr 70fr 10fr;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-gap: 10px;
+}
+
+.box {
+  background-color: #EBECF0;
+  border-radius: 6px;
+  font-family: "Noto Sans Adlam";
   overflow: auto;
 }
 
 .current-channel {
-  width: 50%;
-  height: 750px;
-  margin: auto;
-  border: 3px solid dodgerblue;
-  padding: 10px;
-  background: darkgrey;
+  display: grid;
+  grid-template: 80fr 20fr/ 100fr;
+}
+
+.chat-box {
   overflow: auto;
 }
 
-.channels {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
-  height: 20%;
-}
-.channels li {
-  cursor: pointer;
-  position: center;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  text-align: center;
-}
-.channels li:hover {
-  color: #2c3a41;
-  background-color: #e6e6e6;
-  left: .1em;
-}
-.channels li.selected {
-  background-color: black;
-  color: white;
-}
-.channels li.selected:hover {
-  background-color: #505050;
-  color: white;
-}
-.channels li.selected:active {
-  background-color: black;
-  color: white;
-}
-
-.selected-messages {
-  font-size: 12pt;
-}
-
 .new-message {
+  height: 200px;
+  display: grid;
+  grid-template: minmax(300px, 25fr)/ 80fr 20fr;
   position: sticky;
-}
-
-input {
-  padding: .5rem;
-}
-
-.profile {
-  position: absolute;
-  top: 35%;
-  right: 0;
-  border-radius: 50%;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 100px;
-  width: 100px;
-  text-align: center;
 }

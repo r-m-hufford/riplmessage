@@ -1,4 +1,5 @@
-<div class="four-channel">
+<div class="container">
+<div class="box four-channel">
   <h1>MY CHANNELS</h1>
   <ul class="channels">
     <li *ngFor="let channel of channels"
@@ -9,11 +10,11 @@
   </ul>
 </div>
 
-<div class="current-channel" *ngIf="selectedChannel">
+<div class="box current-channel" *ngIf="selectedChannel">
 
   <h1>{{ selectedChannel.name | uppercase }}</h1>
   <div><span>Owner: </span>{{ selectedChannel.owner }}</div>
-  <div>
+  <div class="chat-box">
     <ol class="selected-messages">
       <li *ngFor="let message of selectedChannel.messages">
         {{message}}
@@ -21,11 +22,11 @@
     </ol>
   </div>
   <div class="new-message">
-    <label for="new-message">Message </label>
     <input id="new-message" [(ngModel)]="message" placeholder="Enter message here" (keydown.enter)="submitMessage()" />
+    <button class="submit-button" (click)="submitMessage()" >SEND</button>
   </div>
-  <button class="submit-button" (click)="submitMessage()" >SEND</button>
 
 </div>
 
-<div class="profile">Return to Profile</div>
+<div class="box profile">Return to Profile</div>
+</div>
