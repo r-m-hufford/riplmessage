@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Channel } from '../channel';
 import { ChannelService } from '../channel.service';
 import {Message} from '../message';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-channel',
@@ -10,14 +11,20 @@ import {Message} from '../message';
 })
 export class ChannelComponent implements OnInit {
   channels: Channel[] = [];
-  selectedChannel: any = null;
+  selectedChannel?: Channel;
   message = '';
 
   constructor(private channelService: ChannelService) { }
 
   ngOnInit(): void {
-    this.channelService.findAll().subscribe(data => {this.channels = data;
-    });
+    this.channelService.findAll().subscribe(
+      (data: Channel[]) => {
+        this.channels = data;
+        },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        }
+    );
   }
 
   onClick(channel: Channel): void {
@@ -25,8 +32,15 @@ export class ChannelComponent implements OnInit {
   }
 
   submitMessage(): void {
-    const myMessage: Message = {messageBody: ''};
-    this.selectedChannel?.messages.push(myMessage);
+    const date: Date = new Date();
+    const newMessage: Message = {messageBody: this.message, timeStamp: date, channel: this.selectedChannel};
+    this.selectedChannel?.messages.push(newMessage);
     this.message = '';
+    this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel);
+  }
+
+  testCreateChannel(): void {
+    let channelfound: Channel;
+    console.log(this.channelService.findById(1).subscribe(channel => channelfound = channel));
   }
 }

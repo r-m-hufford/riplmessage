@@ -8,9 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class ChannelService {
   private channelUrls: string;
+  private headers: HttpHeaders;
 
   constructor(private http: HttpClient) {
     this.channelUrls = 'http://localhost:8080/Channel';
+    this.headers = new HttpHeaders({'Content-Type' : 'application/json'});
   }
 
   public findAll(): Observable<Channel[]> {
@@ -22,10 +24,10 @@ export class ChannelService {
   }
 
   public createChannel(channel: Channel): Observable<Channel> {
-    return this.http.post<Channel>(this.channelUrls, channel);
+    return this.http.post<Channel>(this.channelUrls, channel, {headers: this.headers});
   }
 
-  public updateChannel(id: number, channel: Channel): Observable<Channel> {
+  public updateChannel(id: number | undefined, channel: Channel | undefined): Observable<Channel> {
     return this.http.put<Channel>(this.channelUrls + `/${id}`, channel);
   }
 
