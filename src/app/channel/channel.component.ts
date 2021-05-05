@@ -32,15 +32,16 @@ export class ChannelComponent implements OnInit {
   }
 
   submitMessage(): void {
-    const date: Date = new Date();
-    const newMessage: Message = {messageBody: this.message, timeStamp: date, channel: this.selectedChannel};
+    let date: Date = new Date();
+    let newMessage: Message = {messageBody: this.message, timeStamp: date, channel: this.selectedChannel};
+    this.channelService.addMessage(newMessage).subscribe();
     this.selectedChannel?.messages.push(newMessage);
     this.message = '';
-    this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel);
+    this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
   }
 
   testCreateChannel(): void {
-    let channelfound: Channel;
-    console.log(this.channelService.findById(1).subscribe(channel => channelfound = channel));
+    const testChannel: Channel = {name: 'testChannel', messages: this.selectedChannel?.messages};
+    this.channelService.createChannel(testChannel).subscribe();
   }
 }
