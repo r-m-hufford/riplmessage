@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Channel } from '../channel';
-import { CHANNELS } from '../mock-channels';
+import { ChannelService } from '../channel.service';
+import {Message} from '../message';
 
 @Component({
   selector: 'app-channel',
@@ -8,13 +9,15 @@ import { CHANNELS } from '../mock-channels';
   styleUrls: ['./channel.component.css']
 })
 export class ChannelComponent implements OnInit {
-  channels = CHANNELS;
-  selectedChannel?: Channel;
+  channels: Channel[] = [];
+  selectedChannel: any = null;
   message = '';
 
-  constructor() { }
+  constructor(private channelService: ChannelService) { }
 
   ngOnInit(): void {
+    this.channelService.findAll().subscribe(data => {this.channels = data;
+    });
   }
 
   onClick(channel: Channel): void {
@@ -22,7 +25,8 @@ export class ChannelComponent implements OnInit {
   }
 
   submitMessage(): void {
-    this.selectedChannel?.messages.push(this.message);
+    const myMessage: Message = {messageBody: ''};
+    this.selectedChannel?.messages.push(myMessage);
     this.message = '';
   }
 }

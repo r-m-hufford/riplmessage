@@ -13,11 +13,11 @@
 <div class="box current-channel" *ngIf="selectedChannel">
 
   <h1>{{ selectedChannel.name | uppercase }}</h1>
-  <div><span>Owner: </span>{{ selectedChannel.owner }}</div>
+  <div><span>Name: </span>{{ selectedChannel.name }}</div>
   <div class="chat-box">
     <ol class="selected-messages">
       <li *ngFor="let message of selectedChannel.messages">
-        {{message}}
+        {{message.messageBody}}
       </li>
     </ol>
   </div>
@@ -29,4 +29,5 @@
 </div>
 
 <div class="box profile">Return to Profile</div>
+
 </div>
