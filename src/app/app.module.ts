@@ -8,6 +8,8 @@ import { ChannelComponent } from './channel/channel.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ChannelService} from './channel.service';
 
 
 @NgModule({
@@ -21,9 +23,10 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ChannelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

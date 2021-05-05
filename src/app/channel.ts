@@ -1,6 +1,9 @@
+import {User} from './user';
+import {Message} from './message';
+
 export interface Channel {
   id: number;
   name: string;
-  owner: string;
-  messages: string[];
+  user: User[];
+  messages: Message[];
 }
