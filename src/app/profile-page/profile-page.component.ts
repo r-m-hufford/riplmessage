@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import {User} from '../user';
+import {HttpErrorResponse} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-profile-page',
@@ -6,11 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  channels = ['machine learning', 'sailing', 'python', 'java', 'compiler errors', 'blacksmithing', 'angular'];
+  users: User[] = [];
+  selectedUser?: User;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.findAll().subscribe(
+      (data: User[]) => {
+        this.users = data;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }
