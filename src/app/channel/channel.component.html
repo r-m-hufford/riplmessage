@@ -13,7 +13,14 @@
 <div class="box current-channel" *ngIf="selectedChannel">
 
   <h1>{{ selectedChannel.name | uppercase }}</h1>
-  <div><span>Name: </span>{{ selectedChannel.name }}</div>
+  <div>Users:</div>
+  <div>
+    <ol>
+      <li *ngFor="let user of selectedChannel.users">
+        {{ user.userName }}
+      </li>
+    </ol>
+  </div>
   <div class="chat-box">
     <ol class="selected-messages">
       <li *ngFor="let message of selectedChannel.messages">
@@ -28,6 +35,10 @@
 
 </div>
 
+
 <div class="box profile">Return to Profile</div>
+<div>
+  <button (click)="testCreateChannel()">CREATE NEW CHANNEL</button>
+</div>
 
 </div>
