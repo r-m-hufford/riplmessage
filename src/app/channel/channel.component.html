@@ -29,7 +29,7 @@
     </ol>
   </div>
   <div class="new-message">
-    <input id="new-message" [(ngModel)]="message" placeholder="Enter message here" (keydown.enter)="submitMessage()" />
+    <input id="new-message" [(ngModel)]="message" placeholder="Enter message here" (keydown.enter)="submitMessage($event)" />
     <button class="submit-button" (click)="testCreateChannel()" >SEND</button>
   </div>
 
