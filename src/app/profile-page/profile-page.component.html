@@ -7,14 +7,12 @@
   </div>
 
   <div class="box rowHolder channels ">
-    <button class="channelDmButton">Interview Prep</button>
-    <button class="channelDmButton">No Mention Of Tech</button>
-    <button class="channelDmButton">ripl</button>
-    <button class="channelDmButton">Zip Code</button>
-    <button class="channelDmButton">Onepiece</button>
-    <button class="channelDmButton">Demonslayer</button>
-    <button class="channelDmButton">opm</button>
-    <button class="channelDmButton">How I Learned To Stop Worrying and Love The Bomb</button>
+    <ul>
+      <button routerLink="/channel" class="channelDmButton"
+              *ngFor="let channel of user.channelList">
+        {{channel.name}}
+      </button>
+    </ul>
   </div>
 
   <div class="box columnHolder">
@@ -35,16 +33,10 @@
   </div>
 
   <div class="box dm rowHolder">
-    <button class="channelDmButton">Kelly Porter</button>
-    <button class="channelDmButton">Xiong Yuan</button>
-    <button class="channelDmButton">Ryan Hufford</button>
-    <button class="channelDmButton">Ben DuPont</button>
-    <button class="channelDmButton">Jorge Tapia</button>
-    <button class="channelDmButton">Desa Burton</button>
-    <button class="channelDmButton">Kris Younger</button>
-    <button class="channelDmButton">gerg</button>
-    <button class="channelDmButton">Lossie Freeman</button>
-
+    <button routerLink="/channel" class="channelDmButton"
+            *ngFor="let message of user.directMessages">
+      GAMMA
+    </button>
   </div>
 
   <div class="box columnHolder">
