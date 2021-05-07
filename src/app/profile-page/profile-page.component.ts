@@ -15,12 +15,12 @@ export class ProfilePageComponent implements OnInit {
   users?: User[];
   channels: Channel[] = [];
   directMessages: DirectMessage[] = [];
-  user?: User;
+  user: User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.findById(2).subscribe(
+    this.userService.findById(1).subscribe(
       (data: User) => {
         this.user = data;
       },
