@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import {User} from '../user';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Channel} from '../channel';
+import {DirectMessage} from '../direct-messages';
 
 
 @Component({
@@ -10,15 +12,17 @@ import {HttpErrorResponse} from '@angular/common/http';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  users: User[] = [];
-  selectedUser?: User;
+  users?: User[];
+  channels: Channel[] = [];
+  directMessages: DirectMessage[] = [];
+  user: User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.findAll().subscribe(
-      (data: User[]) => {
-        this.users = data;
+    this.userService.findById(1).subscribe(
+      (data: User) => {
+        this.user = data;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

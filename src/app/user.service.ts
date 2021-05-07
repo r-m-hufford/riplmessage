@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from './user';
 import { Observable } from 'rxjs';
+import {Channel} from './channel';
 
 
 @Injectable({
@@ -18,11 +19,11 @@ export class UserService {
   }
 
   public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.userUrls);
+    return this.http.get<User[]>(this.userUrls + `/findAll`);
   }
 
   public findById(id: number): Observable<User> {
-    return this.http.get<User>(this.userUrls + `/${id}`);
+    return this.http.get<User>(this.userUrls + `/findOne/${id}`);
   }
 
   public createUser(user: User): Observable<User>{
@@ -34,6 +35,10 @@ export class UserService {
   }
 
   public deleteUser(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(this.userUrls + `/${id}`)
+    return this.http.delete<boolean>(this.userUrls + `/${id}`);
   }
+
+/*  public userChannels(id: number): Observable<Channel[]> {
+    return this.http.get<User>(this.userUrls + `/getchannels/${id}`);
+  }*/
 }

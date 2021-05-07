@@ -10,6 +10,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ChannelService} from './channel.service';
+import {RouterModule} from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 
 @NgModule({
@@ -18,13 +21,36 @@ import {ChannelService} from './channel.service';
     ProfilePageComponent,
     ChannelComponent,
     ForgotPasswordComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: 'home',
+        component: LoginComponent
+      },
+      {
+        path: 'forgot',
+        component: ForgotPasswordComponent
+      },
+      {
+        path: 'profile',
+        component: ProfilePageComponent
+      },
+      {
+        path: 'channel',
+        component: ChannelComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [ChannelService],
   bootstrap: [AppComponent]
