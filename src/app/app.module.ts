@@ -43,12 +43,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
         component: ProfilePageComponent
       },
       {
-        path: 'channel',
+        path: 'channel/:id',
         component: ChannelComponent
       },
       {
-        path: '**',
-        component: NotFoundComponent
+        path: 'channel',
+        component: ChannelComponent
       }
     ])
   ],
