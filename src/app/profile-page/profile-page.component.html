@@ -8,7 +8,7 @@
 
   <div class="box rowHolder channels ">
     <ul>
-      <button routerLink="/channel" class="channelDmButton"
+      <button [routerLink]="['/channel', channel.id]" class="channelDmButton"
               *ngFor="let channel of user.channelList">
         {{channel.name}}
       </button>
