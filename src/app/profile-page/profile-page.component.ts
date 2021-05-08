@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import {User} from '../models/user';
 import {HttpErrorResponse} from '@angular/common/http';
-import {Channel} from '../channel';
-import {DirectMessage} from '../direct-messages';
+import {Channel} from '../models/channel';
+import {DirectMessage} from '../models/direct-messages';
 
 
 @Component({
