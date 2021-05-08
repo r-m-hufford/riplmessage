@@ -9,9 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ChannelService} from './channel.service';
 import {RouterModule} from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
+// import { NotFoundComponent } from './not-found/not-found.component';
+import {ChatComponent} from './chat/chat.component';
 
 
 
@@ -22,7 +22,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ChannelComponent,
     ForgotPasswordComponent,
     LoginComponent,
-    NotFoundComponent
+    // NotFoundComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
       }
     ])
   ],
-  providers: [ChannelService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
