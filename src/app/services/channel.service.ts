@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Channel } from './channel';
+import { Channel } from '../models/channel';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment';
-import {Message} from './message';
+import { environment } from '../../environments/environment';
+import {Message} from '../models/message';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +36,8 @@ export class ChannelService {
     return this.http.delete<void>(`${this.apiBaseUrl}/Channel/${id}`);
   }
 
-  public addMessage(message: Message): Observable<Message> {
-    return this.http.post(`${this.apiBaseUrl}/messages`, message);
-  }
+  // public addMessage(message: Message): Observable<Message> {
+  //   return this.http.post(`${this.apiBaseUrl}/messages`, message);
+  // }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import {User} from '../user';
+import { UserService } from '../services/user.service';
+import {User} from '../models/user';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Channel} from '../channel';
 import {DirectMessage} from '../direct-messages';

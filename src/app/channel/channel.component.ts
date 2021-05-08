@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Channel } from '../channel';
-import { ChannelService } from '../channel.service';
-import {Message} from '../message';
+import { Channel } from '../models/channel';
+import { ChannelService } from '../services/channel.service';
+import {Message} from '../models/message';
 import {HttpErrorResponse} from '@angular/common/http';
-import {webSocket} from 'rxjs/webSocket';
 
 @Component({
   selector: 'app-channel',
@@ -14,7 +13,6 @@ export class ChannelComponent implements OnInit {
   channels: Channel[] = [];
   selectedChannel?: Channel;
   message = '';
-  subject = webSocket('ws://localhost:8080/chat');
 
   constructor(private channelService: ChannelService) { }
 
@@ -29,24 +27,16 @@ export class ChannelComponent implements OnInit {
     );
   }
 
-  sendToServer($event) {
-    this.subject.subscribe();
-    this.subject.next(this.message);
-    this.subject.complete();
-  }
-
   onClick(channel: Channel): void {
     this.selectedChannel = channel;
   }
 
-  submitMessage($event): void {
+  submitMessage(): void {
     let date: Date = new Date();
     let newMessage: Message = {messageBody: this.message, timeStamp: date, channel: this.selectedChannel};
     this.channelService.addMessage(newMessage).subscribe();
+    // @ts-ignore
     this.selectedChannel?.messages.push(newMessage);
-    this.subject.subscribe();
-    this.subject.next(this.message);
-    this.subject.complete();
     this.message = '';
     this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
   }

@@ -11,27 +11,28 @@
 </div>
 
 <div class="box current-channel" *ngIf="selectedChannel">
+  <app-chat></app-chat>
 
-  <h1>{{ selectedChannel.name | uppercase }}</h1>
-  <div>Users:</div>
-  <div>
-    <ol>
-      <li *ngFor="let user of selectedChannel.users">
-        {{ user.userName }}
-      </li>
-    </ol>
-  </div>
-  <div class="chat-box">
-    <ol class="selected-messages">
-      <li *ngFor="let message of selectedChannel.messages">
-        {{message.messageBody}}
-      </li>
-    </ol>
-  </div>
-  <div class="new-message">
-    <input id="new-message" [(ngModel)]="message" placeholder="Enter message here" (keydown.enter)="submitMessage($event)" />
-    <button class="submit-button" (click)="testCreateChannel()" >SEND</button>
-  </div>
+<!--  <h1>{{ selectedChannel.name | uppercase }}</h1>-->
+<!--  <div>Users:</div>-->
+<!--  <div>-->
+<!--    <ol>-->
+<!--      <li *ngFor="let user of selectedChannel.users">-->
+<!--        {{ user.userName }}-->
+<!--      </li>-->
+<!--    </ol>-->
+<!--  </div>-->
+<!--  <div class="chat-box">-->
+<!--    <ol class="selected-messages">-->
+<!--      <li *ngFor="let message of selectedChannel.messages">-->
+<!--        {{message.messageBody}}-->
+<!--      </li>-->
+<!--    </ol>-->
+<!--  </div>-->
+<!--  <div class="new-message">-->
+<!--    <input id="new-message" [(ngModel)]="message" placeholder="Enter message here" (keydown.enter)="submitMessage()" />-->
+<!--    <button class="submit-button" (click)="testCreateChannel()" >SEND</button>-->
+<!--  </div>-->
 
 </div>
 
