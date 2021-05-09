@@ -1,13 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Channel } from '../models/channel';
 import { ChannelService } from '../services/channel.service';
-import {Message} from '../models/message';
+import {MessageDTO} from '../models/messageDTO';
 import {HttpErrorResponse} from '@angular/common/http';
 import {UserService} from '../services/user.service';
 import {User} from '../models/user';
 import {ChatComponent} from '../chat/chat.component';
 import {WebsocketService} from '../services/websocket.service';
 import {NgForm} from '@angular/forms';
+import {Message} from '../models/message';
 
 @Component({
   selector: 'app-channel',
@@ -17,6 +18,7 @@ import {NgForm} from '@angular/forms';
 export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
   selectedChannel?: Channel;
+  messages: Message[] = [];
   message = '';
   user: User;
 
@@ -62,15 +64,16 @@ export class ChannelComponent implements OnInit, OnDestroy {
     this.selectedChannel = channel;
   }
 
-/*  submitMessage(): void {
-    let date: Date = new Date();
-    let newMessage: Message = {messageBody: this.message, timeStamp: date, channel: this.selectedChannel};
-    this.channelService.addMessage(newMessage).subscribe();
-    // @ts-ignore
-    this.selectedChannel?.messages.push(newMessage);
-    this.message = '';
-    this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
-  }*/
+  // submitMessage(): void {
+  //   let date: Date = new Date();
+  //   let newMessage: Message = {messageBody: this.message, timeStamp: date, channel: this.selectedChannel};
+  //   this.channelService.addMessage(newMessage).subscribe();
+  //   // @ts-ignore
+  //   this.selectedChannel?.messages.push(newMessage);
+  //   this.message = '';
+  //   this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
+  // }
+
 
   testCreateChannel(): void {
     const testChannel: Channel = {name: 'testChannel', messages: this.selectedChannel?.messages};
@@ -82,10 +85,14 @@ export class ChannelComponent implements OnInit, OnDestroy {
   }
 
   sendMessage(sendForm: NgForm) {
-    const message = new Message(sendForm.value.messageBody);
-    this.websocketService.sendMessage(message);
+    const messageDTO = new MessageDTO(sendForm.value.messageBody);
+    let newMessage: Message = {messageBody: sendForm.value.messageBody};
+    // @ts-ignore
+    this.channelService.addMessage(newMessage).subscribe();
+    // this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
+    this.websocketService.sendMessage(messageDTO);
     sendForm.controls.messageBody.reset();
+    console.log(newMessage);
   }
-
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Message} from '../models/message';
+import {MessageDTO} from '../models/messageDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import {Message} from '../models/message';
 export class WebsocketService {
 
   webSocket: WebSocket;
-  chatMessages: Message[] = [];
+  chatMessages: MessageDTO[] = [];
 
   constructor() { }
 
@@ -28,8 +28,8 @@ export class WebsocketService {
     };
   }
 
-  public sendMessage(message: Message) {
-    this.webSocket.send(JSON.stringify(message));
+  public sendMessage(messageDTO: MessageDTO) {
+    this.webSocket.send(JSON.stringify(messageDTO));
   }
 
   public closeWebSocket() {
