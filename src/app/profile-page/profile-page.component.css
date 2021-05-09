@@ -1,118 +1,53 @@
-/*STANDARD CSS OBJECTS*/
-h1 {
-  margin-left: 45vw;
-  font-family: "Noto Sans Adlam";
-  color: #9E363A;
+body{
+  margin-top:20px;
+  color: #1a202c;
+  text-align: left;
+  background-color: #e2e8f0;
+}
+.main-body {
+  padding: 15px;
+}
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
 
-img {
-  width: 250px;
-  height: 250px;
-  border: 3px solid #9E363A;
-  border-radius: 15px;
-}
-
-button{
-
-}
-
-label{
-  color: #9E363A;
-}
-
-/*CUSTOM CLASSES*/
-.container {
-  height: 90vh;
-  display: grid;
-  margin: 10px;
-  grid-template: minmax(300px, 50fr) minmax(300px, 50fr) /300px 50fr 50fr 125px;
-  grid-template-areas:
-  "profile channels channels"
-  "settings dm dm";
-  justify-items: stretch;
-  align-items: stretch;
-  row-gap: 10px;
-  column-gap: 10px;
-}
-
-.box {
-  font-size: 24pt;
-  background-color: #0F2862;
-  border-radius: 6px;
-  font-family: "Noto Sans Adlam";
-}
-
-
-.picHolder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rowHolder {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  overflow-y: scroll;
-}
-
-.columnHolder {
+.card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow-y: scroll;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 }
 
-.channels {
-  grid-area: channels;
-
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
 }
 
-.dm{
-  grid-area: dm;
+.gutters-sm {
+  margin-right: -8px;
+  margin-left: -8px;
 }
 
-.channelDmButton {
-  height: 100px;
-  width: 100px;
-  background-image: linear-gradient(to bottom right, #9E363A, #091F36);
-  border-radius: 50%;
-  margin: 10px;
-  z-index: 2;
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.mb-3, .my-3 {
+  margin-bottom: 1rem!important;
 }
 
-.settingHolder{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-y: scroll;
+.bg-gray-300 {
+  background-color: #e2e8f0;
 }
-
-.setting{
-  margin-left: 15px;
+.h-100 {
+  height: 100%!important;
 }
-
-.longlabel {
-  font-size: 18pt;
-}
-
-
-/*SCROLL BAR SETTINGS*/
-div::-webkit-scrollbar {
-  width: 12px; /* width of the entire scrollbar */
-}
-
-div::-webkit-scrollbar-track {
-  background: #0F2862;        /* color of the tracking area */
-  border-radius: 6px;
-}
-
-div::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom right, #9E363A, #091F36);
-  /*background-color: #091F36;    *//* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  /*border: 1px solid #9E363A;*/  /* creates padding around scroll thumb */
+.shadow-none {
+  box-shadow: none!important;
 }
