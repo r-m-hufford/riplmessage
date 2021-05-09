@@ -1,47 +1,105 @@
-<body>
-<h1> YOUR PROFILE</h1>
 <div class="container">
+  <div class="main-body">
 
-  <div class="box picHolder">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+      </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h4>John Doe</h4>
+                <p class="text-secondary mb-1">Full Stack Developer</p>
+                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                <button class="btn btn-primary">Follow</button>
+                <button class="btn btn-outline-primary">Message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <ul class="list-group list-group-flush">
+
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                Kenneth Valdez
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                fip@jukmuh.al
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                (239) 816-9029
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Mobile</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                (320) 380-4539
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                Bay Area, San Francisco, CA
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row gutters-sm">
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">Channels</h6>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">Direct Messages</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="box rowHolder channels ">
-    <ul>
-      <button [routerLink]="['/channel', channel.id]" class="channelDmButton"
-              *ngFor="let channel of user.channelList">
-        {{channel.name}}
-      </button>
-    </ul>
-  </div>
-
-  <div class="box columnHolder">
-    <button class="channelDmButton">ADD CHANNEL</button>
-  </div>
-
-  <div class="box columnHolder">
-    <form>
-      <label class="setting">user name:</label><br>
-      <input class="setting" type="text"><br>
-      <label class="setting">email:</label><br>
-      <input class="setting" type="email"><br>
-      <label class="setting">new password:</label><br>
-      <input class="setting" type="password"><br>
-      <label class="setting longlabel">confirm new password:</label><br>
-      <input class="setting" type="password"><br>
-    </form>
-  </div>
-
-  <div class="box dm rowHolder">
-    <button routerLink="/channel" class="channelDmButton"
-            *ngFor="let message of user.directMessages">
-      GAMMA
-    </button>
-  </div>
-
-  <div class="box columnHolder">
-    <button class="channelDmButton">NEW MEASSAGE</button>
-  </div>
-
 </div>
-</body>
