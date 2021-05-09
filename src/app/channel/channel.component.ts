@@ -3,6 +3,8 @@ import { Channel } from '../models/channel';
 import { ChannelService } from '../services/channel.service';
 import {Message} from '../models/message';
 import {HttpErrorResponse} from '@angular/common/http';
+import {UserService} from '../services/user.service';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-channel',
@@ -13,11 +15,18 @@ export class ChannelComponent implements OnInit {
   channels: Channel[] = [];
   selectedChannel?: Channel;
   message = '';
+  user: User;
 
-  constructor(private channelService: ChannelService) { }
+  constructor(private channelService: ChannelService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.channelService.findAll().subscribe(
+    this.userService.findById(1).subscribe(
+      (data: User) => {
+        this.user = data;
+      }
+    );
+
+    this.channelService.findUserChannels(this.user.id).subscribe(
       (data: Channel[]) => {
         this.channels = data;
         },
@@ -45,4 +54,6 @@ export class ChannelComponent implements OnInit {
     const testChannel: Channel = {name: 'testChannel', messages: this.selectedChannel?.messages};
     this.channelService.createChannel(testChannel).subscribe();
   }
+
+
 }
