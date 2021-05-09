@@ -83,6 +83,9 @@ small, .small {
 
 .chat-message{
   background: #f9f9f9;
+  height: 550px;
+  width: 650px;
+  overflow: auto;
 }
 
 .chat li img {
