@@ -1,7 +1,4 @@
-export class Message {
-  messageBody: string;
+export interface Message {
 
-  constructor(messageBody: string) {
-    this.messageBody = messageBody;
-  }
+  messageBody: string;
 }

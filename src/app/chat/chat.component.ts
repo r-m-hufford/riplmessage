@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WebsocketService} from '../services/websocket.service';
 import {NgForm} from '@angular/forms';
-import {Message} from '../models/message';
+import {MessageDTO} from '../models/messageDTO';
 
 @Component({
   selector: 'app-chat',
@@ -22,8 +22,8 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   sendMessage(sendForm: NgForm) {
     const date = new Date();
-    const message = new Message(sendForm.value.messageBody, sendForm.value.senderId);
-    this.webSocketService.sendMessage(message);
+    const messageDTO = new MessageDTO(sendForm.value.messageBody);
+    this.webSocketService.sendMessage(messageDTO);
     sendForm.controls.message.reset();
   }
 

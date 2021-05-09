@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Channel } from '../models/channel';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import {Message} from '../models/message';
+import {Message} from '../models/messageDTO';
 import {UserService} from './user.service';
 
 @Injectable({
@@ -41,8 +41,8 @@ export class ChannelService {
     return this.http.get<Channel[]>(`${this.apiBaseUrl}/Channel/User/${id}/Channels`);
   }
 
-  // public addMessage(message: Message): Observable<Message> {
-  //   return this.http.post(`${this.apiBaseUrl}/messages`, message);
-  // }
+  public addMessage(message: Message): Observable<Message> {
+    return this.http.post(`${this.apiBaseUrl}/messages`, message);
+  }
 
 }
