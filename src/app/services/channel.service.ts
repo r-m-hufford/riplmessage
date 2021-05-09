@@ -4,6 +4,7 @@ import { Channel } from '../models/channel';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import {Message} from '../models/message';
+import {UserService} from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ChannelService {
   private apiBaseUrl = environment.apiBaseUrl;
   private headers: HttpHeaders;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
     this.headers = new HttpHeaders({'Content-Type' : 'application/json'});
   }
 
@@ -34,6 +35,10 @@ export class ChannelService {
 
   public deleteChannel(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiBaseUrl}/Channel/${id}`);
+  }
+
+  public findUserChannels(id: number): Observable<Channel[]> {
+    return this.http.get<Channel[]>(`${this.apiBaseUrl}/Channel/User/${id}/Channels`);
   }
 
   // public addMessage(message: Message): Observable<Message> {
