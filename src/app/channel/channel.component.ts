@@ -18,6 +18,7 @@ import {Message} from '../models/message';
 export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
   selectedChannel?: Channel;
+  messages: Message[] = [];
   message = '';
   user: User;
 
@@ -87,11 +88,10 @@ export class ChannelComponent implements OnInit, OnDestroy {
     let newMessage: Message = {messageBody: sendForm.value.messageBody};
     // @ts-ignore
     this.channelService.addMessage(newMessage).subscribe();
-    this.selectedChannel.messages.push(newMessage);
-    this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
+    // this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
     this.websocketService.sendMessage(messageDTO);
     sendForm.controls.messageBody.reset();
+    console.log(newMessage);
   }
-
 
 }

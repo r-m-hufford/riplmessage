@@ -27,28 +27,28 @@
       <div class="container">
         <div class="chat-content">
           <div class="card">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" *ngFor="let message of selectedChannel.messages">
-                <strong>Ryan: </strong>
-                <span>{{message.messageBody}}</span>
-              </li>
+            <ol class="list-group list-group-flush">
+<!--              <li class="list-group-item" *ngFor="let message of this.selectedChannel.messages">-->
+<!--                <strong>Ryan: </strong>-->
+<!--                <span>{{message.messageBody}}</span>-->
+<!--              </li>-->
               <li class="list-group-item" *ngFor="let chatMessage of websocketService.chatMessages">
                 <strong>Ryan: </strong>
                 <span>{{chatMessage.messageBody}}</span>
               </li>
-            </ul>
+            </ol>
           </div>
         </div>
-        <form (ngSubmit)="sendMessage(sendForm)" (keydown.enter)="sendMessage(sendForm)" #sendForm="ngForm">
+        <form (keydown.enter)="sendMessage(sendForm)" #sendForm="ngForm">
           <div class="chat-send row">
             <div class="col-2">
-<!--              <input type="text" class="form-control" name="user" id="input-user" ngModel="">-->
+              <input hidden type="text" class="form-control" name="channel-id" id="input-user" ngModel="">
             </div>
             <div class="col-8">
               <input type="text" class="form-control" name="messageBody" id="input-message" ngModel>
             </div>
             <div class="col-2">
-              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="submit" class="btn btn-primary" (click)="sendMessage(sendForm)">Send</button>
             </div>
           </div>
         </form>

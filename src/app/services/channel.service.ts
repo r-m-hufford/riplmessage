@@ -41,8 +41,8 @@ export class ChannelService {
     return this.http.get<Channel[]>(`${this.apiBaseUrl}/Channel/User/${id}/Channels`);
   }
 
-  public addMessage(message: Message): Observable<Message> {
-    return this.http.post(`${this.apiBaseUrl}/messages`, message);
+  public addMessage(message: Message): Observable<void> {
+    return this.http.post<void>(`${this.apiBaseUrl}/messages`, message);
   }
 
 }
