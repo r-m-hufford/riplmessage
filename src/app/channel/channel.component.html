@@ -9,8 +9,9 @@
       <!-- =============================================================== -->
       <!-- member list -->
       <ul class="friend-list">
-        <li class="active bounceInDown" *ngFor="let channel of channels">
-          <a href="#" class="clearfix">
+        <li class="active bounceInDown" *ngFor="let channel of channels" [class.selected]="channel === selectedChannel"
+            (click)="onClick(channel)">
+          <a class="clearfix">
             <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
             <div class="friend-name">
               <strong>{{channel.name}}</strong>
@@ -27,6 +28,10 @@
         <div class="chat-content">
           <div class="card">
             <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let message of selectedChannel.messages">
+                <strong>Ryan: </strong>
+                <span>{{message.messageBody}}</span>
+              </li>
               <li class="list-group-item" *ngFor="let chatMessage of websocketService.chatMessages">
                 <strong>Ryan: </strong>
                 <span>{{chatMessage.messageBody}}</span>
