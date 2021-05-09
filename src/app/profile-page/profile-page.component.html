@@ -18,7 +18,7 @@
             <div class="d-flex flex-column align-items-center text-center">
               <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
               <div class="mt-3">
-                <h4>John Doe</h4>
+                <h4>{{user.userName}}</h4>
                 <p class="text-secondary mb-1">Full Stack Developer</p>
                 <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                 <button class="btn btn-primary">Follow</button>
@@ -29,7 +29,6 @@
         </div>
         <div class="card mt-3">
           <ul class="list-group list-group-flush">
-
           </ul>
         </div>
       </div>
@@ -41,7 +40,7 @@
                 <h6 class="mb-0">Full Name</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                Kenneth Valdez
+                {{user.name}}
               </div>
             </div>
             <hr>
@@ -50,34 +49,34 @@
                 <h6 class="mb-0">Email</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                fip@jukmuh.al
+                {{user.email}}
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Phone</h6>
+                <h6 class="mb-0">User Name</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                (239) 816-9029
+                {{user.userName}}
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Mobile</h6>
+                <h6 class="mb-0">User Id</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                (320) 380-4539
+                {{user.id}}
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Address</h6>
+                <h6 class="mb-0">Password</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                Bay Area, San Francisco, CA
+                {{user.password}}
               </div>
             </div>
           </div>
@@ -87,7 +86,12 @@
             <div class="card h-100">
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3">Channels</h6>
-
+                <ul >
+                  <button *ngFor="let channel of user.channelList" (click)="channelClick()"
+                          name="currentChannel">
+                    {{channel.name}}
+                  </button>
+                </ul>
               </div>
             </div>
           </div>
@@ -95,6 +99,11 @@
             <div class="card h-100">
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3">Direct Messages</h6>
+                <ul >
+                  <button *ngFor="let channel of user.directMessages">
+                    {{user.name}}
+                  </button>
+                </ul>
               </div>
             </div>
           </div>

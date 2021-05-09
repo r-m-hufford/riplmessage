@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import {User} from '../models/user';
-import {HttpErrorResponse} from '@angular/common/http';
-import {Channel} from '../models/channel';
-import {DirectMessage} from '../models/direct-messages';
+import { User } from '../models/user';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Channel } from '../models/channel';
+import { DirectMessage } from '../models/direct-messages';
 
 
 @Component({
@@ -16,6 +16,7 @@ export class ProfilePageComponent implements OnInit {
   channels: Channel[] = [];
   directMessages: DirectMessage[] = [];
   user: User;
+  currentChannel: Channel;
 
   constructor(private userService: UserService) { }
 
@@ -29,5 +30,11 @@ export class ProfilePageComponent implements OnInit {
       }
     );
   }
+
+  channelClick(): void {
+    console.log(channel);
+  }
+
+
 
 }
