@@ -38,7 +38,7 @@ export class ChannelService {
   }
 
   public findUserChannels(id: number): Observable<Channel[]> {
-    return this.http.get<Channel[]>(`${this.apiBaseUrl}/User/${id}/Channels`);
+    return this.http.get<Channel[]>(`${this.apiBaseUrl}/Channel/User/${id}/Channels`);
   }
 
   // public addMessage(message: Message): Observable<Message> {

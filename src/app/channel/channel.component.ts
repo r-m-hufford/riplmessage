@@ -1,23 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Channel } from '../models/channel';
 import { ChannelService } from '../services/channel.service';
 import {Message} from '../models/message';
 import {HttpErrorResponse} from '@angular/common/http';
 import {UserService} from '../services/user.service';
 import {User} from '../models/user';
+import {ChatComponent} from '../chat/chat.component';
+import {WebsocketService} from '../services/websocket.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-channel',
   templateUrl: './channel.component.html',
   styleUrls: ['./channel.component.css']
 })
-export class ChannelComponent implements OnInit {
+export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
   selectedChannel?: Channel;
   message = '';
   user: User;
 
-  constructor(private channelService: ChannelService, private userService: UserService) { }
+  constructor(private channelService: ChannelService, private userService: UserService, public websocketService: WebsocketService) { }
 
   ngOnInit(): void {
     this.userService.findById(1).subscribe(
@@ -26,13 +29,32 @@ export class ChannelComponent implements OnInit {
       }
     );
 
-    this.channelService.findUserChannels(this.user.id).subscribe(
+    this.websocketService.openWebSocket();
+
+    // this.channelService.findAll().subscribe(
+    //   (data: Channel[]) => {
+    //     this.channels = data;
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // );
+    this.initializeChannels(1);
+
+  }
+
+  ngOnDestroy(): void {
+    this.websocketService.closeWebSocket();
+  }
+
+  initializeChannels(id: number):void {
+    this.channelService.findUserChannels(id).subscribe(
       (data: Channel[]) => {
         this.channels = data;
-        },
+      },
       (error: HttpErrorResponse) => {
         alert(error.message);
-        }
+      }
     );
   }
 
@@ -53,6 +75,16 @@ export class ChannelComponent implements OnInit {
   testCreateChannel(): void {
     const testChannel: Channel = {name: 'testChannel', messages: this.selectedChannel?.messages};
     this.channelService.createChannel(testChannel).subscribe();
+  }
+
+  testlog(): void {
+    console.log(this.user);
+  }
+
+  sendMessage(sendForm: NgForm) {
+    const message = new Message(sendForm.value.messageBody);
+    this.websocketService.sendMessage(message);
+    sendForm.controls.messageBody.reset();
   }
 
 
