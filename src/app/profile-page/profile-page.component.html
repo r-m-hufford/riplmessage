@@ -5,8 +5,8 @@
     <nav aria-label="breadcrumb" class="main-breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)">{{user.name}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{user.userName}}</li>
       </ol>
     </nav>
     <!-- /Breadcrumb -->
@@ -86,8 +86,9 @@
             <div class="card h-100">
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3">Channels</h6>
-                <ul >
-                  <button *ngFor="let channel of user.channelList" (click)="channelClick()"
+                <ul>
+                  <button *ngFor="let channel of user.channelList"
+                          (click)="channelClick()"
                           name="currentChannel">
                     {{channel.name}}
                   </button>

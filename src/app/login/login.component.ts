@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MasterService} from '../services/master.service';
 
 @Component({
   selector: 'app-login',
@@ -6,16 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  id: number;
   username = '';
   password = '';
 
-  constructor() { }
+  constructor(private masterService: MasterService) { }
 
   ngOnInit(): void {
+    this.masterService.currentUser.subscribe( id => this.id = id);
   }
 
   login(): void {
-    console.log(`Username: ${this.username} Password: ${this.password}`);
+    this.masterService.changeUser(this.id);
   }
 
 }
