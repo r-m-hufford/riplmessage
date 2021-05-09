@@ -74,6 +74,7 @@ export class ChannelComponent implements OnInit, OnDestroy {
   //   this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
   // }
 
+
   testCreateChannel(): void {
     const testChannel: Channel = {name: 'testChannel', messages: this.selectedChannel?.messages};
     this.channelService.createChannel(testChannel).subscribe();

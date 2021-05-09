@@ -4,6 +4,8 @@ import { User } from '../models/user';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Channel } from '../models/channel';
 import { DirectMessage } from '../models/direct-messages';
+import { ChannelService } from '../services/channel.service';
+import { MasterService } from '../services/master.service';
 
 
 @Component({
@@ -12,16 +14,18 @@ import { DirectMessage } from '../models/direct-messages';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  users?: User[];
   channels: Channel[] = [];
   directMessages: DirectMessage[] = [];
+  id: number;
   user: User;
-  currentChannel: Channel;
+  // currentChannel: Channel;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private masterService: MasterService) { }
 
   ngOnInit(): void {
-    this.userService.findById(1).subscribe(
+    this.masterService.currentUser.subscribe( id => this.id = id);
+
+    this.userService.findById(this.id).subscribe(
       (data: User) => {
         this.user = data;
       },
@@ -31,10 +35,11 @@ export class ProfilePageComponent implements OnInit {
     );
   }
 
-  channelClick(): void {
-    console.log(channel);
-  }
-
-
-
+  /*channelClick(): void {
+    this.channelService.findById(2).subscribe(
+      (data: Channel) => {
+        this.currentChannel = data;
+      }
+    );
+  }*/
 }
