@@ -7,6 +7,7 @@ import {MasterService} from '../services/master.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  // @ts-ignore
   id: number;
   username = '';
   password = '';

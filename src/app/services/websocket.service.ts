@@ -6,6 +6,7 @@ import {MessageDTO} from '../models/messageDTO';
 })
 export class WebsocketService {
 
+  // @ts-ignore
   webSocket: WebSocket;
   chatMessages: MessageDTO[] = [];
 

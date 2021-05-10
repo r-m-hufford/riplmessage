@@ -16,7 +16,9 @@ import { MasterService } from '../services/master.service';
 export class ProfilePageComponent implements OnInit {
   channels: Channel[] = [];
   directMessages: DirectMessage[] = [];
+  // @ts-ignore
   id: number;
+  // @ts-ignore
   user: User;
   // currentChannel: Channel;
 
