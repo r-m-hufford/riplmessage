@@ -88,7 +88,7 @@
                 <h6 class="d-flex align-items-center mb-3">Channels</h6>
                 <ul>
                   <button *ngFor="let channel of user.channelList"
-                          (click)="channelClick()"
+                          routerLink="/channel"
                           name="currentChannel">
                     {{channel.name}}
                   </button>
