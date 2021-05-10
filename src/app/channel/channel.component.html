@@ -5,7 +5,7 @@
       <div class=" row border-bottom padding-sm" style="height: 40px;">
         Channels
       </div>
-
+      <button routerLink="/profile">GO BACK TO PROFILE</button>
       <!-- =============================================================== -->
       <!-- member list -->
       <ul class="friend-list">
@@ -21,59 +21,42 @@
       </ul>
     </div>
 
-    <!--=========================================================-->
-    <!-- selected chat -->
-<!--    <main class="chat">-->
-<!--      <div class="container">-->
-<!--        <div class="chat-content">-->
-<!--          <div class="card">-->
-<!--            <ol class="list-group list-group-flush">-->
-<!--              <li class="list-group-item" *ngFor="let message of this.selectedChannel.messages">-->
-<!--                <strong>Ryan: </strong>-->
-<!--                <span>{{message.messageBody}}</span>-->
-<!--              </li>-->
-<!--              <li class="list-group-item" *ngFor="let chatMessage of websocketService.chatMessages">-->
-<!--                <strong>Ryan: </strong>-->
-<!--                <span>{{chatMessage.messageBody}}</span>-->
-<!--              </li>-->
-<!--            </ol>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">-->
-<!--          <div class="chat-send row">-->
-<!--            <div class="col-2">-->
-<!--              <input hidden type="text" class="form-control" name="channel-id" id="input-user" ngModel="">-->
-<!--            </div>-->
-<!--            <div class="col-8">-->
-<!--              <input type="text" class="form-control" name="messageBody" id="input-message" ngModel>-->
-<!--            </div>-->
-<!--            <div class="col-2">-->
-<!--              <button type="submit" class="btn btn-primary">Send</button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--      </div>-->
-<!--    </main>-->
-<!--  </div>-->
+<!--    =========================================================-->
+<!--     selected chat -->
+
 
   <div class="col-md-8 bg-white ">
     <div class="chat-message">
-      <ul class="chat">
+      <ol class="chat">
+        <li class="left clearfix" *ngFor="let message of this.selectedChannel.messages">
+                    	<span class="chat-img pull-left">
+                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    	</span>
+          <div class="chat-body clearfix">
+            <div class="header">
+              <strong class="primary-font">{{message.senderUserName}}</strong>
+              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+            </div>
+            <p>
+              {{message.messageBody}}
+            </p>
+          </div>
+        </li>
         <li class="left clearfix" *ngFor="let chatMessages of websocketService.chatMessages">
                     	<span class="chat-img pull-left">
                     		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
                     	</span>
           <div class="chat-body clearfix">
             <div class="header">
-              <strong class="primary-font">{{user.userName}}</strong>
-              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+              <strong class="primary-font">{{chatMessages.sender}}</strong>
+              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{chatMessages.date}}</small>
             </div>
             <p>
               {{chatMessages.messageBody}}
             </p>
           </div>
         </li>
-      </ul>
+      </ol>
     </div>
     <div class="chat-box bg-white">
       <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
@@ -86,4 +69,5 @@
       </form>
     </div>
   </div>
+<!--    <button (click)="testlog()">TEST BUTTON</button>-->
 </div>

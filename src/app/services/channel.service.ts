@@ -10,7 +10,7 @@ import {UserService} from './user.service';
   providedIn: 'root'
 })
 export class ChannelService {
-  private apiBaseUrl = 'http://localhost:8080';
+  private apiBaseUrl = environment.apiBaseUrl;
   private headers: HttpHeaders;
 
   constructor(private http: HttpClient, private userService: UserService) {

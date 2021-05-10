@@ -20,11 +20,10 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.webSocketService.closeWebSocket();
   }
 
-  sendMessage(sendForm: NgForm) {
-    const date = new Date();
-    const messageDTO = new MessageDTO(sendForm.value.messageBody);
-    this.webSocketService.sendMessage(messageDTO);
-    sendForm.controls.message.reset();
-  }
+  // sendMessage(sendForm: NgForm) {
+  //   const messageDTO = new MessageDTO(sendForm.value.messageBody);
+  //   this.webSocketService.sendMessage(messageDTO);
+  //   sendForm.controls.message.reset();
+  // }
 
 }
