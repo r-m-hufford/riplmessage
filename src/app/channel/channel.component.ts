@@ -20,14 +20,15 @@ import {Timestamp} from 'rxjs/internal-compatibility';
 })
 export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
-  selectedChannel: Channel;
+  selectedChannel?: Channel;
   messages: Message[] = [];
   // @ts-ignore
   id: number;
   // @ts-ignore
   user: User;
 
-  constructor(private channelService: ChannelService, private userService: UserService, public websocketService: WebsocketService, private masterService: MasterService) { }
+  constructor(private channelService: ChannelService, private userService: UserService,
+              public websocketService: WebsocketService, private masterService: MasterService) { }
 
   ngOnInit(): void {
     this.masterService.currentUser.subscribe(
