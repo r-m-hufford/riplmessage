@@ -13,7 +13,7 @@ export class WebsocketService {
   constructor() { }
 
   public openWebSocket() {
-    this.webSocket = new WebSocket('wss://https://ripldatabase.herokuapp.com/chat');
+    this.webSocket = new WebSocket('wss://ripldatabase.herokuapp.com/chat');
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);
