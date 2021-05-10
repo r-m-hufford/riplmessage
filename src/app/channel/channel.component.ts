@@ -10,6 +10,7 @@ import {WebsocketService} from '../services/websocket.service';
 import {NgForm} from '@angular/forms';
 import {Message} from '../models/message';
 import {MasterService} from '../services/master.service';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-channel',
@@ -90,13 +91,14 @@ export class ChannelComponent implements OnInit, OnDestroy {
   }
 
   testlog(): void {
-    console.log(this.user);
+    const date = new Date();
+    console.log(date);
   }
 
   sendMessage(sendForm: NgForm) {
-    const date = new Date();
-    const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, date);
-    let newMessage: Message = {messageBody: sendForm.value.messageBody, senderId: this.user.id, channel: this.user.channelList[0]};
+    const now = new Date();
+    const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, now);
+    let newMessage: Message = {messageBody: sendForm.value.messageBody, senderUserName: this.user.userName, channel: this.user.channelList[0]};
     // @ts-ignore
     this.channelService.addMessage(newMessage).subscribe();
     // this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();

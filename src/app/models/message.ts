@@ -3,6 +3,6 @@ import {Channel} from './channel';
 export interface Message {
 
   messageBody: string;
-  senderId: number;
+  senderUserName: string;
   channel: Channel;
 }
