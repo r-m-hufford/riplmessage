@@ -31,26 +31,26 @@ import {ChatComponent} from './chat/chat.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      {
-        path: 'home',
-        component: LoginComponent
-      },
-      {
-        path: 'forgot',
-        component: ForgotPasswordComponent
-      },
-      {
-        path: 'profile',
-        component: ProfilePageComponent
-      },
-      {
-        path: 'channel/:id',
-        component: ChannelComponent
-      },
-      {
-        path: 'channel',
-        component: ChannelComponent
-      }
+    //   {
+    //     path: 'home',
+    //     component: LoginComponent
+    //   },
+    //   {
+    //     path: 'forgot',
+    //     component: ForgotPasswordComponent
+    //   },
+    //   {
+    //     path: 'profile',
+    //     component: ProfilePageComponent
+    //   },
+    //   {
+    //     path: 'channel/:id',
+    //     component: ChannelComponent
+    //   },
+    //   {
+    //     path: 'channel',
+    //     component: ChannelComponent
+    //   }
     ])
   ],
   providers: [],
