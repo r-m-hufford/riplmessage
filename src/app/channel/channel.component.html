@@ -31,7 +31,7 @@
   <div class="col-md-8 bg-white ">
     <div class="chat-message">
       <ol class="chat">
-        <li class="left clearfix" *ngFor="let message of this.selectedChannel.messages">
+        <!--<li class="left clearfix" *ngFor="let message of this.selectedChannel.messages">
                     	<span class="chat-img pull-left">
                     		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
                     	</span>
@@ -44,7 +44,7 @@
               {{message.messageBody}}
             </p>
           </div>
-        </li>
+        </li>-->
         <li class="left clearfix" *ngFor="let chatMessages of websocketService.chatMessages">
                     	<span class="chat-img pull-left">
                     		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
@@ -73,4 +73,5 @@
     </div>
   </div>
     <button (click)="testlog()">TEST BUTTON</button>
+</div>
 </div>

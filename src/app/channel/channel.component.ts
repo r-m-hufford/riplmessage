@@ -102,8 +102,9 @@ export class ChannelComponent implements OnInit, OnDestroy {
       today.getFullYear() + ' ' + ('0' + today.getHours()).slice(-2) + ':' + ('0' + today.getMinutes()).slice(-2);
   }
 
-  sendMessage(sendForm: NgForm) {
+  sendMessage(sendForm: NgForm): void{
     const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, this.getCurrentTime());
+    // tslint:disable-next-line:max-line-length
     const newMessage: Message = {messageBody: sendForm.value.messageBody, timeStamp: this.getCurrentTime(), senderUserName: this.user.userName, channel: this.user.channelList[0]};
     // @ts-ignore
     this.channelService.addMessage(newMessage).subscribe();
