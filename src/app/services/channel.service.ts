@@ -10,7 +10,7 @@ import {UserService} from './user.service';
   providedIn: 'root'
 })
 export class ChannelService {
-  private apiBaseUrl = environment.apiBaseUrl;
+  private apiBaseUrl = 'https://ripldatabase.herokuapp.com/';
   private headers: HttpHeaders;
 
   constructor(private http: HttpClient, private userService: UserService) {
