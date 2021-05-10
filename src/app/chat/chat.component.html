@@ -1,26 +1,44 @@
-<main class="chat">
-  <div class="container">
-    <div class="chat-content">
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let chatMessage of webSocketService.chatMessages">
-            <span>{{chatMessage.messageBody}}</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <form (ngSubmit)="sendMessage(sendForm)" (keydown.enter)="sendMessage(sendForm)" #sendForm="ngForm">
-      <div class="chat-send row">
-        <div class="col-2">
-          <input type="text" class="form-control" name="user" id="input-user" ngModel="">
-        </div>
-        <div class="col-8">
-          <input type="text" class="form-control" name="message" id="input-message" ngModel="">
-        </div>
-        <div class="col-2">
-          <button type="submit" class="btn btn-primary">Send</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</main>
+<!--<div class="col-md-8 bg-white ">-->
+<!--  <div class="chat-message">-->
+<!--    <ul class="chat">-->
+<!--      <li class="left clearfix" *ngFor="let message of this.selectedChannel.messages">-->
+<!--                    	<span class="chat-img pull-left">-->
+<!--                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">-->
+<!--                    	</span>-->
+<!--        <div class="chat-body clearfix">-->
+<!--          <div class="header">-->
+<!--            <strong class="primary-font">{{user.userName}}</strong>-->
+<!--            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>-->
+<!--          </div>-->
+<!--          <p>-->
+<!--            {{message.messageBody}}-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--      <li class="left clearfix" *ngFor="let chatMessages of websocketService.chatMessages">-->
+<!--                    	<span class="chat-img pull-left">-->
+<!--                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">-->
+<!--                    	</span>-->
+<!--        <div class="chat-body clearfix">-->
+<!--          <div class="header">-->
+<!--            <strong class="primary-font">{{user.userName}}</strong>-->
+<!--            <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>-->
+<!--          </div>-->
+<!--          <p>-->
+<!--            {{chatMessages.messageBody}}-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--  <div class="chat-box bg-white">-->
+<!--    <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">-->
+<!--      <div class="input-group">-->
+<!--        <input class="form-control border no-shadow no-rounded" type="text" name="messageBody" placeholder="Type your message here" ngModel>-->
+<!--        <span class="input-group-btn">-->
+<!--                    <button class="btn btn-success no-rounded" type="submit">Send</button>-->
+<!--                  </span>-->
+<!--      </div>&lt;!&ndash; /input-group &ndash;&gt;-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->

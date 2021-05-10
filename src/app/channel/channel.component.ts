@@ -18,7 +18,7 @@ import {MasterService} from '../services/master.service';
 })
 export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
-  selectedChannel?: Channel;
+  selectedChannel: Channel;
   messages: Message[] = [];
   // @ts-ignore
   id: number;
@@ -94,14 +94,15 @@ export class ChannelComponent implements OnInit, OnDestroy {
   }
 
   sendMessage(sendForm: NgForm) {
-    const messageDTO = new MessageDTO(sendForm.value.messageBody);
-    let newMessage: Message = {messageBody: sendForm.value.messageBody};
+    const date = new Date();
+    const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, date);
+    let newMessage: Message = {messageBody: sendForm.value.messageBody, senderId: this.user.id, channel: this.user.channelList[0]};
     // @ts-ignore
     this.channelService.addMessage(newMessage).subscribe();
     // this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
     this.websocketService.sendMessage(messageDTO);
     sendForm.controls.messageBody.reset();
-    console.log(newMessage);
+    console.log(this.selectedChannel);
   }
 
 }
