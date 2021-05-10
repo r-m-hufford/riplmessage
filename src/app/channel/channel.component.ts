@@ -11,6 +11,7 @@ import {NgForm} from '@angular/forms';
 import {Message} from '../models/message';
 import {MasterService} from '../services/master.service';
 import {formatDate} from '@angular/common';
+import {Timestamp} from 'rxjs/internal-compatibility';
 
 @Component({
   selector: 'app-channel',
@@ -91,14 +92,18 @@ export class ChannelComponent implements OnInit, OnDestroy {
   }
 
   testlog(): void {
-    const date = new Date();
-    console.log(date);
+    console.log(this.getCurrentTime());
+  }
+
+  getCurrentTime(): string {
+    const today = new Date();
+    return ('0' + today.getDate()).slice(-2) + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' +
+      today.getFullYear() + ' ' + ('0' + today.getHours()).slice(-2) + ':' + ('0' + today.getMinutes()).slice(-2);
   }
 
   sendMessage(sendForm: NgForm) {
-    const now = new Date();
-    const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, now);
-    let newMessage: Message = {messageBody: sendForm.value.messageBody, senderUserName: this.user.userName, channel: this.user.channelList[0]};
+    const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, this.getCurrentTime());
+    const newMessage: Message = {messageBody: sendForm.value.messageBody, timeStamp: this.getCurrentTime(), senderUserName: this.user.userName, channel: this.user.channelList[0]};
     // @ts-ignore
     this.channelService.addMessage(newMessage).subscribe();
     // this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
