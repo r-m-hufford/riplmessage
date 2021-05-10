@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Channel } from '../models/channel';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import {Message} from '../models/messageDTO';
+import {Message} from '../models/message';
 import {UserService} from './user.service';
 
 @Injectable({

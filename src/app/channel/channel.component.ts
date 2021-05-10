@@ -9,6 +9,7 @@ import {ChatComponent} from '../chat/chat.component';
 import {WebsocketService} from '../services/websocket.service';
 import {NgForm} from '@angular/forms';
 import {Message} from '../models/message';
+import {MasterService} from '../services/master.service';
 
 @Component({
   selector: 'app-channel',
@@ -19,13 +20,19 @@ export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
   selectedChannel?: Channel;
   messages: Message[] = [];
-  message = '';
+  id: number;
   user: User;
 
-  constructor(private channelService: ChannelService, private userService: UserService, public websocketService: WebsocketService) { }
+  constructor(private channelService: ChannelService, private userService: UserService, public websocketService: WebsocketService, private masterService: MasterService) { }
 
   ngOnInit(): void {
-    this.userService.findById(1).subscribe(
+    this.masterService.currentUser.subscribe(
+      (id) => {
+        this.id = id;
+      }
+    );
+
+    this.userService.findById(this.id).subscribe(
       (data: User) => {
         this.user = data;
       }
@@ -41,7 +48,7 @@ export class ChannelComponent implements OnInit, OnDestroy {
     //     alert(error.message);
     //   }
     // );
-    this.initializeChannels(1);
+    this.initializeChannels(this.id);
 
   }
 
@@ -49,7 +56,7 @@ export class ChannelComponent implements OnInit, OnDestroy {
     this.websocketService.closeWebSocket();
   }
 
-  initializeChannels(id: number):void {
+  initializeChannels(id: number): void {
     this.channelService.findUserChannels(id).subscribe(
       (data: Channel[]) => {
         this.channels = data;
