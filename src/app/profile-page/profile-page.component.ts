@@ -21,6 +21,7 @@ export class ProfilePageComponent implements OnInit {
   // @ts-ignore
   user: User;
   // currentChannel: Channel;
+  // channelId?: number;
 
   constructor(private userService: UserService, private masterService: MasterService) { }
 
@@ -37,11 +38,7 @@ export class ProfilePageComponent implements OnInit {
     );
   }
 
-  /*channelClick(): void {
-    this.channelService.findById(2).subscribe(
-      (data: Channel) => {
-        this.currentChannel = data;
-      }
-    );
-  }*/
+  channelClick(channelId: number): void {
+    this.masterService.changeCurrentChannel(channelId);
+  }
 }

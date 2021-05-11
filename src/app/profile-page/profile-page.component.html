@@ -88,10 +88,12 @@
                 <h6 class="d-flex align-items-center mb-3">Channels</h6>
                 <ul>
                   <button *ngFor="let channel of user.channelList"
-                          routerLink="/channel"
-                          name="currentChannel">
+                          (click)="channelClick(channel.id)"
+                          routerLink="/channel">
                     {{channel.name}}
                   </button>
+                  <!--<input name='channelId' placeholder='Channel number' type='text'
+                         [(ngModel)]="channelId" (keydown.enter)="channelClick()">-->
                 </ul>
               </div>
             </div>

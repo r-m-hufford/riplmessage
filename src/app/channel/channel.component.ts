@@ -20,26 +20,37 @@ import {Timestamp} from 'rxjs/internal-compatibility';
 })
 export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
-  selectedChannel = this.channels[0];
+  // @ts-ignore
+  selectedChannel: Channel;
   messages: Message[] = [];
   // @ts-ignore
-  id: number;
+  channelId: number;
   // @ts-ignore
   user: User;
+  userId?: number;
+
 
   constructor(private channelService: ChannelService, private userService: UserService,
-              public websocketService: WebsocketService, private masterService: MasterService) { }
+              public websocketService: WebsocketService, private masterService: MasterService) {
+     this.masterService.currentChannel.subscribe(id => this.channelId = id);
+  }
 
   ngOnInit(): void {
     this.masterService.currentUser.subscribe(
       (id) => {
-        this.id = id;
+        this.userId = id;
       }
     );
 
-    this.userService.findById(this.id).subscribe(
+    this.userService.findById(this.userId).subscribe(
       (data: User) => {
         this.user = data;
+      }
+    );
+
+    this.channelService.findById(this.channelId).subscribe(
+      (data: Channel) => {
+        this.selectedChannel = data;
       }
     );
 
@@ -53,7 +64,7 @@ export class ChannelComponent implements OnInit, OnDestroy {
     //     alert(error.message);
     //   }
     // );
-    this.initializeChannels(this.id);
+    this.initializeChannels(this.channelId);
 
   }
 
@@ -105,7 +116,9 @@ export class ChannelComponent implements OnInit, OnDestroy {
   sendMessage(sendForm: NgForm): void{
     const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, this.getCurrentTime());
     // tslint:disable-next-line:max-line-length
-    const newMessage: Message = {messageBody: sendForm.value.messageBody, timeStamp: this.getCurrentTime(), senderUserName: this.user.userName, channel: this.user.channelList[0]};
+    // @ts-ignore
+    // tslint:disable-next-line:max-line-length
+    const newMessage: Message = {messageBody: sendForm.value.messageBody, timeStamp: this.getCurrentTime(), senderUserName: this.user.userName, channel: this.selectedChannel};
     // @ts-ignore
     this.channelService.addMessage(newMessage).subscribe();
     // this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
