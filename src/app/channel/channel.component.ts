@@ -20,7 +20,7 @@ import {Timestamp} from 'rxjs/internal-compatibility';
 })
 export class ChannelComponent implements OnInit, OnDestroy {
   channels: Channel[] = [];
-  selectedChannel?: Channel;
+  selectedChannel = this.channels[0];
   messages: Message[] = [];
   // @ts-ignore
   id: number;
