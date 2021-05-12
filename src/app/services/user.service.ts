@@ -25,6 +25,10 @@ export class UserService {
     return this.http.get<User>(this.userUrls + `/findOne/${id}`);
   }
 
+  public findByName(name: string, password: string): Observable<User>{
+    return this.http.get<User>(this.userUrls + `/findName/${name}/${password}`);
+  }
+
   public createUser(user: User): Observable<User>{
     return this.http.post<User>(this.userUrls, user, {headers: this.headers});
   }
