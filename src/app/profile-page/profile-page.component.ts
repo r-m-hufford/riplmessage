@@ -21,8 +21,8 @@ export class ProfilePageComponent implements OnInit {
   id: number;
   // @ts-ignore
   user: User;
-  // currentChannel: Channel;
-  // channelId?: number;
+  // currentChannel?: Channel;
+  channelId?: number;
 
   constructor(private userService: UserService, private masterService: MasterService) { }
 

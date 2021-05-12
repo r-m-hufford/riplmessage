@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {MessageDTO} from '../models/messageDTO';
+import {Channel} from '../models/channel';
+import {MasterService} from './master.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +10,17 @@ export class WebsocketService {
 
   // @ts-ignore
   webSocket: WebSocket;
+  channelId?: number;
   chatMessages: MessageDTO[] = [];
 
-  constructor() { }
+  constructor(private masterService: MasterService) { this.masterService.currentChannel.subscribe( (channelId: number) => {
+    this.channelId = channelId;
+  });
+  }
 
   public openWebSocket() {
-    this.webSocket = new WebSocket('wss://ripldatabase.herokuapp.com/chat');
+    const url = `wss://ripldatabase.herokuapp.com/message/channel/${this.channelId}`;
+    this.webSocket = new WebSocket(url);
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);
