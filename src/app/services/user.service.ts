@@ -21,8 +21,12 @@ export class UserService {
     return this.http.get<User[]>(this.userUrls + `/findAll`);
   }
 
-  public findById(id: number): Observable<User> {
+  public findById(id: number | undefined): Observable<User> {
     return this.http.get<User>(this.userUrls + `/findOne/${id}`);
+  }
+
+  public findByName(name: string, password: string): Observable<User>{
+    return this.http.get<User>(this.userUrls + `/findName/${name}/${password}`);
   }
 
   public createUser(user: User): Observable<User>{

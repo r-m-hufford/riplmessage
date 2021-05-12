@@ -1,11 +1,13 @@
 export class MessageDTO {
-  sender: string;
   messageBody: string;
-  date: string;
+  timeStamp: string;
+  senderUserName: string;
+  senderPic: string;
 
-  constructor(sender: string, messageBody: string, date: string) {
-    this.sender = sender;
+  constructor(messageBody: string, timeStamp: string, senderUserName: string, senderPic: string) {
     this.messageBody = messageBody;
-    this.date = date;
+    this.timeStamp = timeStamp;
+    this.senderUserName = senderUserName;
+    this.senderPic = senderPic;
   }
 }

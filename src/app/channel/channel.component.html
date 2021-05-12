@@ -8,12 +8,12 @@
       </div>
 
       <!-- =============================================================== -->
-      <!-- member list -->
+      <!-- channel list -->
       <ul class="friend-list">
-        <li class="active bounceInDown" *ngFor="let channel of channels" [class.selected]="channel === selectedChannel"
+        <li class="active bounceInDown" *ngFor="let channel of user.channelList" [class.selected]="channel === selectedChannel"
             (click)="onClick(channel)">
           <a class="clearfix">
-            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+            <img src="{{channel.logo}}" alt="" class="img-circle">
             <div class="friend-name">
               <strong>{{channel.name}}</strong>
             </div>
@@ -30,15 +30,18 @@
 
   <div class="col-md-8 bg-white ">
     <div class="chat-message">
+      <div>
+
+      </div>
       <ol class="chat">
         <li class="left clearfix" *ngFor="let message of this.selectedChannel.messages">
                     	<span class="chat-img pull-left">
-                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    		<img src="{{message.senderPic}}" alt="User Avatar">
                     	</span>
           <div class="chat-body clearfix">
             <div class="header">
               <strong class="primary-font">{{message.senderUserName}}</strong>
-              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i>{{message.timeStamp}}</small>
             </div>
             <p>
               {{message.messageBody}}
@@ -47,12 +50,12 @@
         </li>
         <li class="left clearfix" *ngFor="let chatMessages of websocketService.chatMessages">
                     	<span class="chat-img pull-left">
-                    		<img src="https://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
+                    		<img src="{{chatMessages.senderPic}}" alt="User Avatar">
                     	</span>
           <div class="chat-body clearfix">
             <div class="header">
-              <strong class="primary-font">{{chatMessages.sender}}</strong>
-              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{chatMessages.date}}</small>
+              <strong class="primary-font">{{chatMessages.senderUserName}}</strong>
+              <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{chatMessages.timeStamp}}</small>
             </div>
             <p>
               {{chatMessages.messageBody}}

@@ -6,8 +6,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MasterService {
 
-  private userId = new BehaviorSubject<number>(3);
+  private userId = new BehaviorSubject<number>(0);
   currentUser = this.userId.asObservable();
+
+  private channelId = new BehaviorSubject<number>(0);
+  currentChannel = this.channelId.asObservable();
 
   constructor() { }
 
@@ -15,4 +18,12 @@ export class MasterService {
   changeUser(id: number) {
     this.userId.next(id);
   }
+
+  // tslint:disable-next-line:typedef
+  changeCurrentChannel(id: number | undefined) {
+    if (id != null) {
+      this.channelId.next(id);
+    }
+  }
+
 }

@@ -7,6 +7,7 @@ export interface User {
   userName: string;
   password: string;
   email: string;
+  profilePicture: string;
   channelList: Channel[];
   directMessages: DirectMessage[];
 }

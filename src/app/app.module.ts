@@ -9,8 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
-import {RouterModule} from '@angular/router';
-// import { NotFoundComponent } from './not-found/not-found.component';
 import {ChatComponent} from './chat/chat.component';
 
 
@@ -22,36 +20,13 @@ import {ChatComponent} from './chat/chat.component';
     ChannelComponent,
     ForgotPasswordComponent,
     LoginComponent,
-    // NotFoundComponent,
     ChatComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot([
-    //   {
-    //     path: 'home',
-    //     component: LoginComponent
-    //   },
-    //   {
-    //     path: 'forgot',
-    //     component: ForgotPasswordComponent
-    //   },
-    //   {
-    //     path: 'profile',
-    //     component: ProfilePageComponent
-    //   },
-    //   {
-    //     path: 'channel/:id',
-    //     component: ChannelComponent
-    //   },
-    //   {
-    //     path: 'channel',
-    //     component: ChannelComponent
-    //   }
-    ])
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

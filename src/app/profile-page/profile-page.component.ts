@@ -6,6 +6,7 @@ import { Channel } from '../models/channel';
 import { DirectMessage } from '../models/direct-messages';
 import { ChannelService } from '../services/channel.service';
 import { MasterService } from '../services/master.service';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -21,27 +22,25 @@ export class ProfilePageComponent implements OnInit {
   // @ts-ignore
   user: User;
   // currentChannel: Channel;
+  // channelId?: number;
 
   constructor(private userService: UserService, private masterService: MasterService) { }
 
   ngOnInit(): void {
-    this.masterService.currentUser.subscribe( id => this.id = id);
-
-    this.userService.findById(this.id).subscribe(
-      (data: User) => {
+    this.masterService.currentUser.subscribe(id => {
+      this.userService.findById(id)
+      .subscribe((data: User) => {
         this.user = data;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
-      }
-    );
+      });
+    });
   }
 
-  /*channelClick(): void {
-    this.channelService.findById(2).subscribe(
-      (data: Channel) => {
-        this.currentChannel = data;
-      }
-    );
-  }*/
+  channelClick(channelId: number): void {
+    this.masterService.changeCurrentChannel(channelId);
+  }
+
+  /*public onOpenEditModal(user: User)*/
 }
