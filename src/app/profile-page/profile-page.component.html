@@ -20,9 +20,9 @@
               <div class="mt-3">
                 <h4>{{user.userName}}</h4>
                 <p class="text-secondary mb-1">Full Stack Developer</p>
-                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                <!--<p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                 <button class="btn btn-primary">Follow</button>
-                <button class="btn btn-outline-primary">Message</button>
+                <button class="btn btn-outline-primary">Message</button>-->
               </div>
             </div>
           </div>
@@ -37,33 +37,6 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Full Name</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                {{user.name}}
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Email</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                {{user.email}}
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">User Name</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                {{user.userName}}
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
                 <h6 class="mb-0">User Id</h6>
               </div>
               <div class="col-sm-9 text-secondary">
@@ -73,10 +46,31 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Password</h6>
+                <h6 class="mb-0">Full Name</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                {{user.password}}
+                {{user.name}}
+                <button>change name</button>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.email}}
+                <button>change email</button>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">User Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.userName}}
+                <button>change user name</button>
               </div>
             </div>
           </div>
@@ -92,8 +86,6 @@
                           routerLink="/channel">
                     {{channel.name}}
                   </button>
-                  <!--<input name='channelId' placeholder='Channel number' type='text'
-                         [(ngModel)]="channelId" (keydown.enter)="channelClick()">-->
                 </ul>
               </div>
             </div>
