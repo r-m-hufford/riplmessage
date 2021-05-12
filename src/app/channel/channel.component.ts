@@ -5,13 +5,11 @@ import {MessageDTO} from '../models/messageDTO';
 import {HttpErrorResponse} from '@angular/common/http';
 import {UserService} from '../services/user.service';
 import {User} from '../models/user';
-import {ChatComponent} from '../chat/chat.component';
 import {WebsocketService} from '../services/websocket.service';
 import {NgForm} from '@angular/forms';
 import {Message} from '../models/message';
 import {MasterService} from '../services/master.service';
-import {formatDate} from '@angular/common';
-import {Timestamp} from 'rxjs/internal-compatibility';
+
 
 @Component({
   selector: 'app-channel',
@@ -56,14 +54,6 @@ export class ChannelComponent implements OnInit, OnDestroy {
 
     this.websocketService.openWebSocket();
 
-    // this.channelService.findAll().subscribe(
-    //   (data: Channel[]) => {
-    //     this.channels = data;
-    //   },
-    //   (error: HttpErrorResponse) => {
-    //     alert(error.message);
-    //   }
-    // );
     this.initializeChannels(this.channelId);
 
   }
@@ -87,17 +77,6 @@ export class ChannelComponent implements OnInit, OnDestroy {
     this.selectedChannel = channel;
   }
 
-  // submitMessage(): void {
-  //   let date: Date = new Date();
-  //   let newMessage: Message = {messageBody: this.message, timeStamp: date, channel: this.selectedChannel};
-  //   this.channelService.addMessage(newMessage).subscribe();
-  //   // @ts-ignore
-  //   this.selectedChannel?.messages.push(newMessage);
-  //   this.message = '';
-  //   this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
-  // }
-
-
   testCreateChannel(): void {
     /*const testChannel: Channel = {name: 'testChannel', messages: this.selectedChannel?.messages};
     this.channelService.createChannel(testChannel).subscribe();*/
@@ -115,14 +94,12 @@ export class ChannelComponent implements OnInit, OnDestroy {
   }
 
   sendMessage(sendForm: NgForm): void{
-    const messageDTO = new MessageDTO(this.user.userName, sendForm.value.messageBody, this.getCurrentTime());
-    // tslint:disable-next-line:max-line-length
+    const messageDTO = new MessageDTO(sendForm.value.messageBody, this.getCurrentTime(), this.user.userName, this.user.profilePicture);
     // @ts-ignore
     // tslint:disable-next-line:max-line-length
-    const newMessage: Message = {messageBody: sendForm.value.messageBody, timeStamp: this.getCurrentTime(), senderUserName: this.user.userName, channel: this.selectedChannel};
+    const newMessage: Message = {messageBody: sendForm.value.messageBody, timeStamp: this.getCurrentTime(), senderUserName: this.user.userName, senderPic: this.user.profilePicture, channel: this.selectedChannel};
     // @ts-ignore
     this.channelService.addMessage(newMessage).subscribe();
-    // this.channelService.updateChannel(this.selectedChannel?.id, this.selectedChannel).subscribe();
     this.websocketService.sendMessage(messageDTO);
     sendForm.controls.messageBody.reset();
     console.log(this.selectedChannel);
