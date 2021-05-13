@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import {UserService} from './services/user.service';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {UserService} from './services/user.service';
     ForgotPasswordComponent,
     LoginComponent,
     ChatComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    NotfoundComponent
   ],
   entryComponents: [
     EditProfileComponent
