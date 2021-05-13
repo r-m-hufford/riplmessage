@@ -1,0 +1,11 @@
+<input name='userName' placeholder='change name' [(ngModel)]="name">
+<br>
+<input name='userName' placeholder='change user name' [(ngModel)]="userName">
+<br>
+<input name='email' placeholder='change email' [(ngModel)]="email">
+<br>
+<input name='email' placeholder='change password' type='password' [(ngModel)]="password">
+<br>
+<h5>Save changes?</h5>
+<button md-raised-button mat-dialog-close="yes" (click)="onYesClick()">Yes</button>
+<button md-raised-button mat-dialog-close="no">No</button>
