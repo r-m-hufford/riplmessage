@@ -25,5 +25,4 @@ export class MasterService {
       this.channelId.next(id);
     }
   }
-
 }
