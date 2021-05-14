@@ -159,7 +159,7 @@ img {
   top: 10px;
   left: -8px;
   display: inline-block;
-  background: #9E363A;
+  background: #28a745;
   width: 16px;
   height: 16px;
   border-top: 1px solid #f1f5fc;
@@ -222,5 +222,9 @@ img {
 a:hover, a:active, a:focus {
   text-decoration: none;
   outline: 0;
+}
+
+.noto{
+  font-family: "Noto Sans Adlam";
 }
 
