@@ -28,7 +28,7 @@ body {
 
 .friend-list li {
   border-bottom: 1px solid #212121;
-  background-color: black !important;
+  background-color: #e9ecef !important;
 }
 
 .friend-list li a img {
@@ -50,7 +50,7 @@ body {
 }
 
 .friend-list li.active a {
-  background-color: black !important;
+  background-color: #e9ecef !important;
 }
 
 .friend-list li a .friend-name,
@@ -93,7 +93,7 @@ small, .small {
 }
 
 .chat-message{
-  background: #fff;
+  background: #e9ecef;
   height: 750px;
   overflow: auto;
 }
