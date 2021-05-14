@@ -1,47 +1,47 @@
 <body>
-<form autocomplete='off' class='form'>
-  <div class='control'>
-    <h1 class="noto">
-      RIPL
-    </h1>
-  </div>
-  <div class='control block-cube block-input'>
-    <input name='username' placeholder='Username' type='text' [(ngModel)]="username">
-    <div class='bg-top'>
-      <div class='bg-inner'></div>
+  <form autocomplete='off' class='form'>
+    <div class='control'>
+      <h1 class="noto">
+        RIPL
+      </h1>
     </div>
-    <div class='bg-right'>
-      <div class='bg-inner'></div>
+    <div class='control block-cube block-input'>
+      <input name='username' placeholder='Username' type='text' [(ngModel)]="username">
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
     </div>
-    <div class='bg'>
-      <div class='bg-inner'></div>
+    <div class='control block-cube block-input'>
+      <input name='password' placeholder='Password' type='password' [(ngModel)]="password">
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
     </div>
-  </div>
-  <div class='control block-cube block-input'>
-    <input name='password' placeholder='Password' type='password' [(ngModel)]="password">
-    <div class='bg-top'>
-      <div class='bg-inner'></div>
-    </div>
-    <div class='bg-right'>
-      <div class='bg-inner'></div>
-    </div>
-    <div class='bg'>
-      <div class='bg-inner'></div>
-    </div>
-  </div>
-  <button routerLink="/profile" class='btn block-cube block-cube-hover' type='button' (click)="login()">
-    <div class='bg-top'>
-      <div class='bg-inner'></div>
-    </div>
-    <div class='bg-right'>
-      <div class='bg-inner'></div>
-    </div>
-    <div class='bg'>
-      <div class='bg-inner'></div>
-    </div>
-    <div class='text'>
-      Sign In
-    </div>
-  </button>
-</form>
+    <button routerLink="/profile" class='btn block-cube block-cube-hover' type='button' (click)="login()">
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='text'>
+        Sign In
+      </div>
+    </button>
+  </form>
 </body>
