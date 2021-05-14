@@ -33,8 +33,8 @@ export class UserService {
     return this.http.post<User>(this.userUrls, user, {headers: this.headers});
   }
 
-  public updateUser(id: number | undefined, user: User | undefined): Observable<User>{
-    return this.http.put<User>(this.userUrls + `/${id}`, user);
+  public updateUser(user: User, id: number): Observable<User>{
+    return this.http.put<User>(this.userUrls + `/updateUser/${id}`, user);
   }
 
   public deleteUser(id: number): Observable<boolean> {

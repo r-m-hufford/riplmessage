@@ -1,26 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-html,
+/*html,
 body,
 #background {
   width: 98vw;
   min-height: 97vh;
   background-color: #4F5F76;
-}
+}*/
 
 html::-webkit-scrollbar {
   width: 12px; /* width of the entire scrollbar */
 }
 
 html::-webkit-scrollbar-track {
-  background: #0F2862;        /* color of the tracking area */
+  background: #212121;        /* color of the tracking area */
   border-radius: 6px;
 }
 
 html::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom right, #9E363A, #091F36);
+  background-image: linear-gradient(to bottom right, #fff, #091F36);
   /*background-color: #091F36;    *//* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
   /*border: 1px solid #9E363A;*/  /* creates padding around scroll thumb */
 }
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

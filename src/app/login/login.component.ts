@@ -17,12 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(private masterService: MasterService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.masterService.currentUser.subscribe( id => this.id = id);
   }
 
   login(): void {
     this.userService.findByName(this.username, this.password)
-      .subscribe(data => {console.log('test', data); this.masterService.changeUser(data.id); }, error => {});
+      .subscribe(data => {console.log('test', data); this.masterService.changeUser(data.id); this.id = data.id; }, error => {});
   }
+
 
 }

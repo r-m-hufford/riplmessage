@@ -10,7 +10,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ChatComponent} from './chat/chat.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import {UserService} from './services/user.service';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -20,15 +24,22 @@ import {ChatComponent} from './chat/chat.component';
     ChannelComponent,
     ForgotPasswordComponent,
     LoginComponent,
-    ChatComponent
+    ChatComponent,
+    EditProfileComponent,
+    NotfoundComponent
+  ],
+  entryComponents: [
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
