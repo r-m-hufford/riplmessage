@@ -83,7 +83,7 @@
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3">Channels</h6>
                 <ul>
-                  <button *ngFor="let channel of user.channelList"
+                  <button class="btn btn-success no-rounded" type="submit" *ngFor="let channel of user.channelList"
                           (click)="channelClick(channel.id)"
                           routerLink="/channel">
                     {{channel.name}}
