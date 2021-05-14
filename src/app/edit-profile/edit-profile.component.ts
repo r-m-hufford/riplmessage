@@ -51,6 +51,9 @@ export class EditProfileComponent implements OnInit {
     if (this.password != null) {
       this.user.password = this.password;
     }
+    if (this.profilePicture != null) {
+      this.user.profilePicture = this.profilePicture;
+    }
     this.userService.updateUser(this.user, this.id).subscribe();
   }
 }
