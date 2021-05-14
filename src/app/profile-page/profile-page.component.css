@@ -1,9 +1,13 @@
 body{
-  margin-top:20px;
   color: #1a202c;
   text-align: left;
   background-color: #212121;
 }
+
+.container {
+  background-color: #212121;
+}
+
 .main-body {
   padding: 15px;
 }

@@ -1,9 +1,18 @@
+<div class="channel-main">
+  <nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="javascript:void(0)">{{user.name}}</a></li>
+      <li class="breadcrumb-item"><a routerLink="/profile">{{user.userName}}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{this.selectedChannel.name}}</li>
+    </ol>
+  </nav>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootstrap snippets bootdey">
-  <button class="btn btn-success no-rounded" routerLink="/profile">GO BACK TO PROFILE</button>
+<!--  <button class="btn btn-success no-rounded" routerLink="/profile">GO BACK TO PROFILE</button>-->
   <div class="row">
     <div class="col-md-4 bg-white ">
-      <div class=" title row border-bottom padding-sm" style="height: 40px;">
+      <div class=" title row border-bottom padding-sm" style="height: 40px; text-align: center">
         CHANNELS
       </div>
 
@@ -76,5 +85,6 @@
     </div>
   </div>
 <!--    <button (click)="testlog()">TEST BUTTON</button>-->
+</div>
 </div>
 </div>

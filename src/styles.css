@@ -12,12 +12,12 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: #0F2862;        /* color of the tracking area */
+  background: #212121;        /* color of the tracking area */
   border-radius: 6px;
 }
 
 html::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom right, #9E363A, #091F36);
+  background-image: linear-gradient(to bottom right, #fff, #091F36);
   /*background-color: #091F36;    *//* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
   /*border: 1px solid #9E363A;*/  /* creates padding around scroll thumb */
