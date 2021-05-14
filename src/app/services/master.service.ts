@@ -6,10 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MasterService {
 
-  private userId = new BehaviorSubject<number>(0);
+  private userId = new BehaviorSubject<number>(3);
   currentUser = this.userId.asObservable();
 
-  private channelId = new BehaviorSubject<number>(0);
+  private channelId = new BehaviorSubject<number>(1);
   currentChannel = this.channelId.asObservable();
 
   constructor() { }
