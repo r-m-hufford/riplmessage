@@ -65,7 +65,7 @@ h1 {
   position: absolute;
   height: 10px;
   background: #020024;
-  background: linear-gradient(90deg, #091F36 0%, #9E363A 37%, #0F2862 94%);
+  background: linear-gradient(90deg, #091F36 0%, #28a745 37%, #0F2862 94%);
   bottom: 100%;
   left: 5px;
   right: -5px;
@@ -82,11 +82,11 @@ h1 {
   right: 0;
   bottom: 0;
   background: #020024;
-  background: linear-gradient(90deg, #091F36 0%, #9E363A 37%, #0F2862 94%);
+  background: linear-gradient(90deg, #091F36 0%, #28a745 37%, #0F2862 94%);
 }
 .block-cube .bg-right {
   position: absolute;
-  background: #9E363A;
+  background: #28a745;
   background: #0F2862;
   top: -5px;
   z-index: 0;
