@@ -95,7 +95,6 @@ small, .small {
 .chat-message{
   background: #e9ecef;
   height: 750px;
-  overflow: auto;
 }
 
 .chat-message::-webkit-scrollbar {
