@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-html,
+/*html,
 body,
 #background {
   width: 98vw;
   min-height: 97vh;
   background-color: #4F5F76;
-}
+}*/
 
 html::-webkit-scrollbar {
   width: 12px; /* width of the entire scrollbar */

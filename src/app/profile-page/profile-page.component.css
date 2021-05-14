@@ -2,13 +2,14 @@ body{
   margin-top:20px;
   color: #1a202c;
   text-align: left;
-  background-color: #e2e8f0;
+  background-color: #212121;
 }
 .main-body {
   padding: 15px;
 }
 .card {
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  color: #212121!important;
 }
 
 .card {
@@ -17,10 +18,11 @@ body{
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   background-clip: border-box;
   border: 0 solid rgba(0,0,0,.125);
   border-radius: .25rem;
+  color: #212121!important;
 }
 
 .card-body {
@@ -55,4 +57,12 @@ body{
 .channelButton{
 
   margin: 3px;
+}
+
+p{
+  color: #212121!important;
+}
+
+span{
+  color: #212121!important;
 }
