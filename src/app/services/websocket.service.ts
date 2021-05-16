@@ -19,7 +19,7 @@ export class WebsocketService {
   }
 
   public openWebSocket() {
-    const url = 'wss://ripldatabase.herokuapp.com/chat';
+    const url = 'wss://https://riplchatapi.herokuapp.com/chat';
     this.webSocket = new WebSocket(url);
 
     this.webSocket.onopen = (event) => {

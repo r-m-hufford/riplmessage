@@ -13,7 +13,7 @@ export class UserService {
   private headers: HttpHeaders;
 
   constructor(private http: HttpClient) {
-    this.userUrls = 'https://ripldatabase.herokuapp.com/User';
+    this.userUrls = 'https://riplchatapi.herokuapp.com/User';
     this.headers = new HttpHeaders({'Content-Type' : 'application/json'});
   }
 
