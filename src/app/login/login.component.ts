@@ -20,8 +20,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+    sessionStorage.removeItem('UserId');
     this.userService.findByName(this.username, this.password)
-      .subscribe(data => {console.log('test', data); this.masterService.changeUser(data.id); this.id = data.id; }, error => {});
+      .subscribe(data => {console.log('test', data); this.masterService.changeUser(data.id);
+                          sessionStorage.setItem('UserId', String(data.id));
+                          this.id = data.id; }, error => {});
   }
 
 

@@ -30,11 +30,10 @@ export class ProfilePageComponent implements OnInit {
               private dialog: MatDialog){ }
 
   ngOnInit(): void {
-    this.masterService.currentUser.subscribe(id => {
-      this.userService.findById(id)
-      .subscribe((data: User) => {
-        this.user = data;
-      });
+    this.id = parseInt(sessionStorage.getItem('UserId') as string, 10);
+    this.userService.findById(this.id)
+    .subscribe((data: User) => {
+      this.user = data;
     });
   }
 
